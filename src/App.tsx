@@ -12,6 +12,7 @@ import PhoneDetails from './pages/PhoneDetails';
 import Tablets from './pages/Tablets';
 import TabletDetails from './pages/TabletDetails';
 import PageNotFound from './pages/PageNotFound';
+import DemoPage from './components/ui/DemoPage';
 
 export const App = () => (
   <div className="App">
@@ -27,6 +28,7 @@ export const App = () => (
       <Route path="/tablets" element={<Tablets />} />
       <Route path="/tablets/:productId" element={<TabletDetails />} />
       <Route path="*" element={<PageNotFound />} />
+      <Route path="/demo" element={<DemoPage />} />
     </Routes>
     <Footer />
   </div>
