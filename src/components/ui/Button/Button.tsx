@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import s from './Button.module.scss';
+
 import { Constants } from '../../../constants';
+
+import s from './Button.module.scss';
 
 interface Props {
   children?: React.ReactNode;

@@ -1,7 +1,8 @@
-import Button from '../Button';
 import { Constants, Icons } from '../../../constants';
-import s from './DemoPage.module.scss';
+import Button from '../Button';
 import { Icon } from '../Icon';
+
+import s from './DemoPage.module.scss';
 
 const DemoPage = () => {
   return (
@@ -18,7 +19,7 @@ const DemoPage = () => {
       <Button variant={Constants.Favorites}>
         <Icon iconId={Icons.Favorites} />
       </Button>
-      <div className={s.textDemo}>
+      <div>
         <h1 className={s.h1}>
           H1 - The quick brown fox jumps over the lazy dog
         </h1>
