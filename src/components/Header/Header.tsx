@@ -36,8 +36,6 @@ export const Header = () => {
     setIsFavorite(!isFavorite);
   };
 
-  console.log(isMenu);
-
   return (
     <div className={s.container}>
       <Logo />

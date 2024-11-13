@@ -22,7 +22,7 @@
   z-index: 5;
 }
 
-.mobile:before {
+.mobile::before {
   content: '';
   position: fixed;
   width: 100vh;
@@ -44,7 +44,7 @@
   color: var(--primary-color);
   position: relative;
 
-  &:after {
+  &::after {
     content: '';
     position: absolute;
     width: 100%;

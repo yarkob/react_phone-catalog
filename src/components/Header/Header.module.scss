@@ -16,12 +16,12 @@
   z-index: 10;
   background-color: var(--white-color);
 
-  @include on-tablet() {
+  @include on-tablet {
     gap: 16px;
     height: 48px;
   }
 
-  @include on-mobile() {
+  @include on-mobile {
     position: relative;
     overflow: visible;
     gap: 16px;
@@ -37,6 +37,6 @@
 }
 
 .icon {
-  box-shadow: -1px 0px 0px 0px #E2E6E9;
+  box-shadow: -1px 0 0 0 #E2E6E9;
   padding: 24px;
 }
