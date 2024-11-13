@@ -22,3 +22,5 @@ export enum Icons {
   ArrowUp = 'arrow-up',
   Menu = 'menu',
 }
+
+export const MAX_MOBILE_WIDTH = 639;

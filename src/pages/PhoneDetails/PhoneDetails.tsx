@@ -1,5 +1,3 @@
-const PhoneDetails = () => {
+export const PhoneDetails = () => {
   return <div>PhoneDetails</div>;
 };
-
-export default PhoneDetails;

@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import cn from 'classnames';
 
-import s from './Icon.module.scss';
 import { Icons } from '../../../constants';
+
+import s from './Icon.module.scss';
 
 interface Props {
   iconId: Icons;

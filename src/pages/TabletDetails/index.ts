@@ -1,1 +1,1 @@
-export { default } from './TabletDetails';
+export { TabletDetails } from './TabletDetails';

@@ -1,1 +1,1 @@
-export { default } from './Accesories';
+export { Accessories } from './Accesories';
