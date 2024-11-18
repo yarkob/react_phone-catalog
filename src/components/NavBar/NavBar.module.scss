@@ -2,33 +2,17 @@
 @import '../../styles/mixins';
 
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.desktopAndTablet {
-  gap: 64px;
-  flex-direction: column;
+  display: none;
 
   @include on-tablet {
+    display: flex;
+    align-items: center;
     gap: 32px;
   }
-}
 
-.mobile {
-  padding: 0 16px;
-  margin-top: 64px;
-  z-index: 5;
-}
-
-.mobile::before {
-  content: '';
-  position: fixed;
-  width: 100vh;
-  height: 100vh;
-  background-color: var(--white-color);
-  z-index: -1;
+  @include on-desktop {
+    gap: 64px;
+  }
 }
 
 .link {
@@ -36,8 +20,15 @@
 
   color: var(--secondary-color);
   text-decoration: none;
-  padding: 26.5px 0;
   display: flex;
+
+  @include on-tablet {
+    padding: 18.5px 0;
+  }
+
+  @include on-desktop {
+    padding: 26.5px 0;
+  }
 }
 
 .linkSelected {

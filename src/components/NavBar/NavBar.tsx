@@ -5,15 +5,14 @@ import cn from 'classnames';
 import s from './NavBar.module.scss';
 
 interface Props {
-  isMobile: boolean;
+  isMenu: boolean;
 }
 
-export const NavBar: FC<Props> = ({ isMobile }) => {
+export const NavBar: FC<Props> = ({ isMenu }) => {
   return (
     <div
       className={cn(s.container, {
-        [s.desktopAndTablet]: !isMobile,
-        [s.mobile]: isMobile,
+        hidden: isMenu,
       })}
     >
       <NavLink

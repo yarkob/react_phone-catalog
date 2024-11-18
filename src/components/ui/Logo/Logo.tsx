@@ -1,17 +1,18 @@
 import { FC } from 'react';
+import cn from 'classnames';
 
 import s from './Logo.module.scss';
 
 interface Props {
-  width?: number;
-  height?: number;
+  className?: string;
 }
 
-export const Logo: FC<Props> = ({ width = 89, height = 32 }) => {
+export const Logo: FC<Props> = ({ className = '' }) => {
   return (
     <img
-      className={s.container}
-      style={{ width, height }}
+      className={cn(s.container, {
+        [className]: className,
+      })}
       src="../../../public/img/logo.png"
       alt="logo"
     />
