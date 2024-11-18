@@ -4,17 +4,9 @@ import cn from 'classnames';
 
 import s from './NavBar.module.scss';
 
-interface Props {
-  isMenu: boolean;
-}
-
-export const NavBar: FC<Props> = ({ isMenu }) => {
+export const NavBar: FC = () => {
   return (
-    <div
-      className={cn(s.container, {
-        hidden: isMenu,
-      })}
-    >
+    <div className={s.container}>
       <NavLink
         className={({ isActive }) =>
           cn(s.link, {

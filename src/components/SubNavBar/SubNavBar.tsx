@@ -8,7 +8,7 @@ import s from './SubNavBar.module.scss';
 
 export const SubNavBar = () => {
   return (
-    <div className={s.menu}>
+    <div className={s.container}>
       <NavLink
         to="/favorites"
         className={({ isActive }) =>

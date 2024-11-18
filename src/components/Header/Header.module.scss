@@ -24,13 +24,6 @@
     gap: 24px;
     height: 64px;
   }
-
-  //@include on-mobile {
-  //  position: relative;
-  //  overflow: visible;
-  //  gap: 16px;
-  //  height: 48px;
-  //}
 }
 
 .logo {
@@ -59,10 +52,6 @@
   }
 }
 
-//.iconContainer {
-//  position: relative;
-//}
-
 .iconSelected {
   position: relative;
 
@@ -76,6 +65,8 @@
   }
 }
 
-.hidden {
-  display: none;
+.burger {
+  @include on-tablet {
+    display: none;
+  }
 }

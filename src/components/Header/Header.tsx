@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import cn from 'classnames';
+import { useSearchParams } from 'react-router-dom';
 
 import { Icons } from '../../constants';
+import { MobileMenu } from '../MobileMenu';
 import { NavBar } from '../NavBar';
+import { SearchLink } from '../SearchLink/SearchLink';
 import { SubNavBar } from '../SubNavBar';
 import { Icon } from '../ui/Icon';
 import { Logo } from '../ui/Logo';
@@ -10,25 +11,19 @@ import { Logo } from '../ui/Logo';
 import s from './Header.module.scss';
 
 export const Header = () => {
-  const [isMenu, setIsMenu] = useState(false);
-
-  const onMenu = () => {
-    setIsMenu(!isMenu);
-  };
+  const [searchParams, setSearchParams] = useSearchParams();
+  const modal = searchParams.get('modal');
+  const isMenu = modal === 'menu';
 
   return (
     <div className={s.container}>
       <Logo className={s.logo} />
-      <NavBar isMenu={isMenu} />
-      <div
-        onClick={onMenu}
-        className={cn('', {
-          [s.hidden]: isMenu,
-        })}
-      >
+      <NavBar />
+      <SearchLink params={{ modal: 'menu' }} className={s.burger}>
         <Icon className={s.icon} iconId={Icons.Menu} />
-      </div>
+      </SearchLink>
       <SubNavBar />
+      {isMenu && <MobileMenu />}
     </div>
   );
 };
