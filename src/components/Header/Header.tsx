@@ -11,7 +11,7 @@ import { Logo } from '../ui/Logo';
 import s from './Header.module.scss';
 
 export const Header = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const modal = searchParams.get('modal');
   const isMenu = modal === 'menu';
 
@@ -19,7 +19,10 @@ export const Header = () => {
     <div className={s.container}>
       <Logo className={s.logo} />
       <NavBar />
-      <SearchLink params={{ modal: 'menu' }} className={s.burger}>
+      <SearchLink
+        params={{ modal: isMenu ? null : 'menu' }}
+        className={s.burger}
+      >
         <Icon className={s.icon} iconId={Icons.Menu} />
       </SearchLink>
       <SubNavBar />
