@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 
@@ -6,13 +7,21 @@ import { Icon } from '../ui/Icon';
 
 import s from './SubNavBar.module.scss';
 
-export const SubNavBar = () => {
+interface Props {
+  isMobile?: boolean;
+}
+
+export const SubNavBar: FC<Props> = ({ isMobile = false }) => {
   return (
-    <div className={s.container}>
+    <div
+      className={cn(s.container, {
+        [s.onMobile]: isMobile,
+      })}
+    >
       <NavLink
         to="/favorites"
         className={({ isActive }) =>
-          cn('', {
+          cn(s.link, {
             [s.iconSelected]: isActive,
           })
         }
@@ -22,7 +31,7 @@ export const SubNavBar = () => {
       <NavLink
         to="/cart"
         className={({ isActive }) =>
-          cn('', {
+          cn(s.link, {
             [s.iconSelected]: isActive,
           })
         }

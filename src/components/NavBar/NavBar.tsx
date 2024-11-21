@@ -4,9 +4,17 @@ import cn from 'classnames';
 
 import s from './NavBar.module.scss';
 
-export const NavBar: FC = () => {
+interface Props {
+  isMobile?: boolean;
+}
+
+export const NavBar: FC<Props> = ({ isMobile = false }) => {
   return (
-    <div className={s.container}>
+    <div
+      className={cn(s.container, {
+        [s.mobileOn]: isMobile,
+      })}
+    >
       <NavLink
         className={({ isActive }) =>
           cn(s.link, {
