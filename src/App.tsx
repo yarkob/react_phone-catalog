@@ -1,18 +1,20 @@
-import './App.scss';
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Accessories from './pages/Accessories';
-import AccessoryDetails from './pages/AccessoryDetails';
-import Favorites from './pages/Favorites';
-import Cart from './pages/Cart';
-import Header from './components/header';
-import Footer from './components/footer';
-import Phones from './pages/Phones';
-import PhoneDetails from './pages/PhoneDetails';
-import Tablets from './pages/Tablets';
-import TabletDetails from './pages/TabletDetails';
-import PageNotFound from './pages/PageNotFound';
+
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
 import DemoPage from './components/ui/DemoPage';
+import { Accessories } from './pages/Accessories';
+import { AccessoryDetails } from './pages/AccessoryDetails';
+import { Cart } from './pages/Cart';
+import { Favorites } from './pages/Favorites';
+import { Home } from './pages/Home';
+import { PageNotFound } from './pages/PageNotFound';
+import { PhoneDetails } from './pages/PhoneDetails';
+import { Phones } from './pages/Phones';
+import { TabletDetails } from './pages/TabletDetails';
+import { Tablets } from './pages/Tablets';
+
+import './App.scss';
 
 export const App = () => (
   <div className="App">

@@ -1,1 +1,1 @@
-export { default } from './Tablets';
+export { Tablets } from './Tablets';
