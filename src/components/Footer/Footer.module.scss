@@ -1,3 +1,77 @@
+@import '../../styles/extends';
+@import '../../styles/mixins';
+
 .container {
-  color: black;
+  width: calc(100% - 32px);
+  height: 267px;
+  padding: 0 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  display: flex;
+
+  @include on-tablet {
+    width: calc(100% - 64px);
+    padding: 0 32px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @include on-desktop {
+    width: calc(100% - 304px);
+    height: 96px;
+    padding: 0 152px;
+    bottom: 0;
+  }
+}
+
+.logo {
+  width: 89px;
+  height: 32px;
+}
+
+.logoContainer {
+  display: flex;
+  flex: 1;
+  justify-content: start;
+}
+
+.links {
+  flex-direction: column;
+  gap: 16px;
+  display: flex;
+
+  @include on-tablet {
+    flex: 1;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+.link {
+  @extend %typo-uppercase;
+
+  color: var(--secondary-color);
+}
+
+.toTop {
+  width: 100%;
+  margin: 0 16px;
+  justify-content: center;
+
+  @include on-tablet {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  padding: 8px;
+  margin-left: 16px;
+  border: 1px solid var(--icons-color);
+  cursor: pointer;
 }

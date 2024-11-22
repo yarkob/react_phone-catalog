@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import { Icons } from '../../constants';
 import { MobileMenu } from '../MobileMenu';
@@ -17,9 +17,7 @@ export const Header = () => {
 
   return (
     <div className={s.container}>
-      <Link to="/">
-        <Logo className={s.logo} />
-      </Link>
+      <Logo className={s.logo} />
       <NavBar />
       <SearchLink
         params={{ modal: isMenu ? null : 'menu' }}
