@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
 import s from './Logo.module.scss';
@@ -9,12 +10,14 @@ interface Props {
 
 export const Logo: FC<Props> = ({ className = '' }) => {
   return (
-    <img
-      className={cn(s.container, {
-        [className]: className,
-      })}
-      src="../../../public/img/logo.png"
-      alt="logo"
-    />
+    <Link to="/">
+      <img
+        className={cn(s.container, {
+          [className]: className,
+        })}
+        src="../../../public/img/logo.png"
+        alt="logo"
+      />
+    </Link>
   );
 };
