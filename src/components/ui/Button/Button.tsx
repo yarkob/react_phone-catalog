@@ -11,6 +11,8 @@ interface Props {
   variant: Constants;
   isDisabled?: boolean;
   isSelected?: boolean;
+  onClick?: () => void;
+  className?: string;
 }
 
 const Button: FC<Props> = ({
@@ -18,10 +20,13 @@ const Button: FC<Props> = ({
   variant,
   color = '#ffffff',
   isSelected,
+  onClick,
+  className,
 }) => {
   return (
     <button
-      className={cn(s.button, {
+      onClick={onClick}
+      className={cn(s.button, className, {
         [s.primary]: variant === Constants.Primary,
         [s.primarySelected]: variant === Constants.Primary && isSelected,
         [s.pagination]: variant === Constants.Pagination,
