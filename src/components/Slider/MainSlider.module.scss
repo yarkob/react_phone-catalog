@@ -1,0 +1,64 @@
+@import '../../styles/mixins';
+
+.container {
+  display: flex;
+  gap: 16px;
+  width: 100vw;
+
+  @include on-tablet {
+    max-width: 592px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @include on-desktop {
+    max-width: none;
+  }
+}
+
+.swiper {
+  padding-bottom: 32px;
+
+  @include on-tablet {
+    height: 221px;
+  }
+
+  @include on-desktop {
+    height: 432px;
+  }
+}
+
+.swiperSlide {
+  aspect-ratio: 1 / 1;
+
+  @include on-tablet {
+    height: 189px;
+    width: 490px;
+  }
+
+  @include on-desktop {
+    height: 400px;
+    width: 1040px;
+  }
+}
+
+.button {
+  display: none;
+
+  @include on-tablet {
+    display: flex;
+    height: 189px;
+  }
+
+  @include on-desktop {
+    height: 400px;
+  }
+}
+
+.image {
+  height: 100%;
+
+  @include on-tablet {
+    width: 100%;
+  }
+}

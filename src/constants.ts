@@ -24,3 +24,87 @@ export enum Icons {
 }
 
 export const MAX_MOBILE_WIDTH = 639;
+
+export const IMAGES = [
+  {
+    alt: 'iphone 14 pro ad',
+    // eslint-disable-next-line max-len
+    src: '../../../public/img/slider-images/desktop/iphone14-pro-commercial.png',
+  },
+  {
+    alt: 'ipad pro ad',
+    src: '../../../public/img/slider-images/desktop/ipad-pro-commercial.jpg',
+  },
+  {
+    alt: 'mac mini ad',
+    src: '../../../public/img/slider-images/desktop/mac-mini-commercial.jpg',
+  },
+  {
+    alt: 'macbook pro ad',
+    src: '../../../public/img/slider-images/desktop/macbook-pro-commercial.jpg',
+  },
+  {
+    alt: 'macintosh ad',
+    src: '../../../public/img/slider-images/desktop/macintosh-commercial.jpg',
+  },
+  {
+    alt: 'apple vision pro ad',
+    // eslint-disable-next-line max-len
+    src: '../../../public/img/slider-images/desktop/apple-vision-pro-commercial.jpg',
+  },
+  {
+    alt: 'iphone 16 ad',
+    src: '../../../public/img/slider-images/desktop/iphone16-commercial.jpg',
+  },
+  {
+    alt: 'apple watch 10 ad',
+    // eslint-disable-next-line max-len
+    src: '../../../public/img/slider-images/desktop/apple-watch10-commercial.jpg',
+  },
+  {
+    alt: 'ipod ad',
+    src: '../../../public/img/slider-images/desktop/ipod-commercial.webp',
+  },
+];
+
+export const IMAGES_MOBILE = [
+  {
+    alt: 'iphone 14 pro ad',
+    // eslint-disable-next-line max-len
+    src: '../../../public/img/slider-images/mobile/iphone14-pro-commercial.png',
+  },
+  {
+    alt: 'ipad pro ad',
+    src: '../../../public/img/slider-images/mobile/ipad-pro-commercial.jpeg',
+  },
+  {
+    alt: 'mac mini ad',
+    src: '../../../public/img/slider-images/mobile/mac-mini-commercial.jpeg',
+  },
+  {
+    alt: 'macbook pro ad',
+    src: '../../../public/img/slider-images/mobile/macbook-pro-commercial.jpeg',
+  },
+  {
+    alt: 'macintosh ad',
+    src: '../../../public/img/slider-images/mobile/macintosh-commercial.jpeg',
+  },
+  {
+    alt: 'apple vision pro ad',
+    // eslint-disable-next-line max-len
+    src: '../../../public/img/slider-images/mobile/apple-vision-pro-commercial.jpeg',
+  },
+  {
+    alt: 'iphone 16 ad',
+    src: '../../../public/img/slider-images/mobile/iphone16-commercial.jpeg',
+  },
+  {
+    alt: 'apple watch 10 ad',
+    // eslint-disable-next-line max-len
+    src: '../../../public/img/slider-images/mobile/apple-watch10-commercial.jpeg',
+  },
+  {
+    alt: 'ipod ad',
+    src: '../../../public/img/slider-images/mobile/ipod-commercial.webp',
+  },
+];
