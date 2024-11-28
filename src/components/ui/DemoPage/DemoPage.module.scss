@@ -1,38 +1,38 @@
 @import '../../../styles/fonts';
-@import '../../../styles/extends';
+@import '../../../styles/typography';
 
 .page > * {
   margin: 20px;
 }
 
 .h1 {
-  @extend %typo-h1;
+  @include typo-h1;
 }
 
 .h2 {
-  @extend %typo-h2;
+  @include typo-h2;
 }
 
 .h3 {
-  @extend %typo-h3;
+  @include typo-h3;
 }
 
 .h4 {
-  @extend %typo-h4;
+  @include typo-h4;
 }
 
 .uppercase {
-  @extend %typo-uppercase;
+  @include typo-uppercase;
 }
 
 .buttons {
-  @extend %typo-buttons;
+  @include typo-buttons;
 }
 
 .bodyText {
-  @extend %typo-body;
+  @include typo-body;
 }
 
 .smallText {
-  @extend %typo-small;
+  @include typo-small;
 }

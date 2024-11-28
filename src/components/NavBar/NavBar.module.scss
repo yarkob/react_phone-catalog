@@ -1,4 +1,4 @@
-@import '../../styles/extends';
+@import '../../styles/typography';
 @import '../../styles/mixins';
 
 .container {
@@ -24,7 +24,7 @@
 }
 
 .link {
-  @extend %typo-uppercase;
+  @include typo-uppercase;
 
   padding: 8px 0;
 

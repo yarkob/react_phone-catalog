@@ -1,3 +1,4 @@
+import { Categories } from '../../components/Categories';
 import { MainSlider } from '../../components/Slider';
 
 import s from './Home.module.scss';
@@ -9,7 +10,7 @@ export const Home = () => {
       <div className={s.content}>
         <MainSlider />
         <div>Brand new models</div>
-        <div>Shop by category</div>
+        <Categories />
         <div>Hot prices</div>
       </div>
     </div>

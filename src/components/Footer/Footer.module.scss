@@ -1,4 +1,4 @@
-@import '../../styles/extends';
+@import '../../styles/typography';
 @import '../../styles/mixins';
 
 .container {
@@ -50,7 +50,7 @@
 }
 
 .link {
-  @extend %typo-uppercase;
+  @include typo-uppercase;
 
   color: var(--secondary-color);
 }

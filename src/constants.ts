@@ -108,3 +108,24 @@ export const IMAGES_MOBILE = [
     src: '../../../public/img/slider-images/mobile/ipod-commercial.webp',
   },
 ];
+
+export const CATEGORIES = [
+  {
+    title: 'Mobile Phones',
+    models: 95,
+    alt: 'phones',
+    src: '../../../public/img/categories/phones.png',
+  },
+  {
+    title: 'Tablets',
+    models: 24,
+    alt: 'tablets',
+    src: '../../../public/img/categories/tablets.png',
+  },
+  {
+    title: 'Accessories',
+    models: 100,
+    alt: 'accessories',
+    src: '../../../public/img/categories/accessories.png',
+  },
+];
