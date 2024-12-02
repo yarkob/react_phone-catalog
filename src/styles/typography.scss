@@ -1,30 +1,30 @@
-%typo-h1 {
+@mixin typo-h1 {
   font-family: MontBold, sans-serif;
   font-size: 48px;
   line-height: 56px;
   letter-spacing: -0.01em;
 }
 
-%typo-h2 {
+@mixin typo-h2 {
   font-family: MontBold, sans-serif;
   font-size: 32px;
   line-height: 41px;
   letter-spacing: -0.01em;
 }
 
-%typo-h3 {
+@mixin typo-h3 {
   font-family: MontBold, sans-serif;
   font-size: 22px;
   line-height: 31px;
 }
 
-%typo-h4 {
+@mixin typo-h4 {
   font-family: MontSemiBold, sans-serif;
   font-size: 20px;
   line-height: 26px;
 }
 
-%typo-uppercase {
+@mixin typo-uppercase {
   font-family: MontBold, sans-serif;
   text-transform: uppercase;
   font-size: 12px;
@@ -32,21 +32,45 @@
   letter-spacing: -0.04em;
 }
 
-%typo-buttons {
+@mixin typo-buttons {
   font-family: MontSemiBold, sans-serif;
   font-size: 14px;
   line-height: 21px;
 }
 
-%typo-body {
+@mixin typo-body {
   font-family: Mont, sans-serif;
   font-size: 14px;
   line-height: 21px;
 }
 
-%typo-small {
+@mixin typo-small {
   font-family: MontSemiBold, sans-serif;
   font-size: 12px;
   line-height: 15px;
 }
 
+@mixin typo-h1-mobile {
+  font-family: MontBold, sans-serif;
+  font-size: 32px;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+}
+
+@mixin typo-h2-mobile {
+  font-family: MontBold, sans-serif;
+  font-size: 22px;
+  line-height: 31px;
+}
+
+@mixin typo-h3-mobile {
+  font-family: MontSemiBold, sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+@mixin typo-h4-mobile {
+  font-family: MontSemiBold, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
