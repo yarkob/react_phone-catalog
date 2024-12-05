@@ -15,7 +15,7 @@ export const Logo: FC<Props> = ({ className = '' }) => {
         className={cn(s.container, {
           [className]: className,
         })}
-        src="../../../public/img/logo.png"
+        src="./img/logo.png"
         alt="logo"
       />
     </Link>

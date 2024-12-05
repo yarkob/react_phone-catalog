@@ -26,11 +26,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
   return (
     <div className={s.container}>
       <div className={s.content}>
-        <img
-          className={s.image}
-          alt="phone"
-          src={`../../../../public/${product.images[0]}`}
-        />
+        <img className={s.image} alt="phone" src={`./${product.images[0]}`} />
         <p className={s.name}>{product.name}</p>
         <div className={s.price}>
           <span className={s.priceDiscount}>${product.priceDiscount}</span>
