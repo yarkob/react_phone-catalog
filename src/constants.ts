@@ -23,47 +23,74 @@ export enum Icons {
   Menu = 'menu',
 }
 
+// interface Description {
+//   title: string;
+//   text: string[];
+// }
+
+export interface Product {
+  id: string;
+  category: string;
+  namespaceId: string;
+  name: string;
+  capacityAvailable: string[];
+  capacity: string;
+  priceRegular: number;
+  priceDiscount: number;
+  colorsAvailable: string[];
+  color: string;
+  images: string[];
+  // description: Description[];
+  screen: string;
+  resolution: string;
+  processor: string;
+  ram: string;
+  camera: string;
+  zoom: string;
+  cell: string[];
+}
+
 export const MAX_MOBILE_WIDTH = 639;
 
 export const IMAGES = [
   {
     alt: 'iphone 14 pro ad',
     // eslint-disable-next-line max-len
-    src: '../../../public/img/slider-images/desktop/iphone14-pro-commercial.png',
+    src: './img/slider-images/desktop/iphone14-pro-commercial.png',
   },
   {
     alt: 'ipad pro ad',
-    src: '../../../public/img/slider-images/desktop/ipad-pro-commercial.jpg',
+    src: './img/slider-images/desktop/ipad-pro-commercial.jpg',
   },
   {
     alt: 'mac mini ad',
-    src: '../../../public/img/slider-images/desktop/mac-mini-commercial.jpg',
+    src: './img/slider-images/desktop/mac-mini-commercial.jpg',
   },
   {
     alt: 'macbook pro ad',
-    src: '../../../public/img/slider-images/desktop/macbook-pro-commercial.jpg',
+    src: './img/slider-images/desktop/macbook-pro-commercial.jpg',
   },
   {
     alt: 'macintosh ad',
-    src: '../../../public/img/slider-images/desktop/macintosh-commercial.jpg',
+    src: './img/slider-images/desktop/macintosh-commercial.jpg',
   },
   {
     alt: 'apple vision pro ad',
     // eslint-disable-next-line max-len
-    src: '../../../public/img/slider-images/desktop/apple-vision-pro-commercial.jpg',
+    src: './img/slider-images/desktop/apple-vision-pro-commercial.jpg',
   },
   {
     alt: 'iphone 16 ad',
-    src: '../../../public/img/slider-images/desktop/iphone16-commercial.jpg',
+    src: './img/slider-images/desktop/iphone16-commercial.jpg',
   },
   {
     alt: 'apple watch 10 ad',
     // eslint-disable-next-line max-len
-    src: '../../../public/img/slider-images/desktop/apple-watch10-commercial.jpg',
+    src: './img/slider-images/desktop/apple-watch10-commercial.jpg',
   },
   {
     alt: 'ipod ad',
-    src: '../../../public/img/slider-images/desktop/ipod-commercial.webp',
+    src: './img/slider-images/desktop/ipod-commercial.webp',
   },
 ];
 
@@ -114,18 +141,18 @@ export const CATEGORIES = [
     title: 'Mobile Phones',
     models: 95,
     alt: 'phones',
-    src: '../../../public/img/categories/phones.png',
+    src: './img/categories/phones.png',
   },
   {
     title: 'Tablets',
     models: 24,
     alt: 'tablets',
-    src: '../../../public/img/categories/tablets.png',
+    src: './img/categories/tablets.png',
   },
   {
     title: 'Accessories',
     models: 100,
     alt: 'accessories',
-    src: '../../../public/img/categories/accessories.png',
+    src: './img/categories/accessories.png',
   },
 ];
