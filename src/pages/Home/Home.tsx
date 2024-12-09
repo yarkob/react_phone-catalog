@@ -1,5 +1,5 @@
 import { Categories } from '../../components/Categories';
-import { MainSlider } from '../../components/Slider';
+import { MainSlider } from '../../components/MainSlider';
 
 import s from './Home.module.scss';
 
