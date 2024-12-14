@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
-import { Constants } from '../../../constants';
+import { Variants } from '../../../constants';
 
 import s from './Button.module.scss';
 
 interface Props {
   children?: React.ReactNode;
   color?: string;
-  variant: Constants;
+  variant: Variants;
   isDisabled?: boolean;
   isSelected?: boolean;
   onClick?: () => void;
@@ -27,15 +27,15 @@ const Button: FC<Props> = ({
     <button
       onClick={onClick}
       className={cn(s.button, className, {
-        [s.primary]: variant === Constants.Primary,
-        [s.primarySelected]: variant === Constants.Primary && isSelected,
-        [s.pagination]: variant === Constants.Pagination,
-        [s.slider]: variant === Constants.Slider,
-        [s.color]: variant === Constants.Color,
-        [s.favorites]: variant === Constants.Favorites,
+        [s.primary]: variant === Variants.Primary,
+        [s.primarySelected]: variant === Variants.Primary && isSelected,
+        [s.pagination]: variant === Variants.Pagination,
+        [s.slider]: variant === Variants.Slider,
+        [s.color]: variant === Variants.Color,
+        [s.favorites]: variant === Variants.Favorites,
       })}
     >
-      {variant === Constants.Color ? (
+      {variant === Variants.Color ? (
         <div className={s.innerCircle} style={{ backgroundColor: color }} />
       ) : (
         children

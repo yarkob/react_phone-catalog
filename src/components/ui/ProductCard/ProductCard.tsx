@@ -1,7 +1,8 @@
 import { FC, useState } from 'react';
 import cn from 'classnames';
 
-import { Constants, Icons, Product } from '../../../constants';
+import { Icons, Variants } from '../../../constants';
+import { Product } from '../../../types';
 import Button from '../Button';
 import { Icon } from '../Icon';
 
@@ -26,11 +27,13 @@ export const ProductCard: FC<Props> = ({ product }) => {
   return (
     <div className={s.container}>
       <div className={s.content}>
-        <img className={s.image} alt="phone" src={`./${product.images[0]}`} />
-        <p className={s.name}>{product.name}</p>
+        <img className={s.image} alt="phone" src={`./${product.image}`} />
+        <p title={product.name} className={s.name}>
+          {product.name}
+        </p>
         <div className={s.price}>
-          <span className={s.priceDiscount}>${product.priceDiscount}</span>
-          <span className={s.priceRegular}>${product.priceRegular}</span>
+          <span className={s.priceDiscount}>${product.price}</span>
+          <span className={s.priceRegular}>${product.fullPrice}</span>
         </div>
         <span className={s.line} />
         <div className={s.specs}>
@@ -51,12 +54,12 @@ export const ProductCard: FC<Props> = ({ product }) => {
           <Button
             onClick={addToCartHandler}
             isSelected={isSelected}
-            variant={Constants.Primary}
+            variant={Variants.Primary}
             className={s.addToCart}
           >
             {isSelected ? 'Added' : 'Add to cart'}
           </Button>
-          <Button className={s.favorite} variant={Constants.Favorites}>
+          <Button className={s.favorite} variant={Variants.Favorites}>
             {isFavorite ? (
               <Icon
                 onClick={favoriteHandler}

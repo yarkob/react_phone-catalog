@@ -21,16 +21,6 @@
   aspect-ratio: 1 / 1;
   width: 100%;
   margin-bottom: 24px;
-
-  @include on-tablet {
-    width: 187px;
-    height: 187px;
-  }
-
-  @include on-desktop {
-    width: 368px;
-    height: 368px;
-  }
 }
 
 .title {

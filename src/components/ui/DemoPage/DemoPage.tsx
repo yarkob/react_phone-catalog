@@ -1,4 +1,4 @@
-import { Constants, Icons } from '../../../constants';
+import { Icons, Variants } from '../../../constants';
 import Button from '../Button';
 import { Icon } from '../Icon';
 import { ProductCard } from '../ProductCard';
@@ -8,16 +8,16 @@ import s from './DemoPage.module.scss';
 const DemoPage = () => {
   return (
     <div className={s.page}>
-      <Button variant={Constants.Primary}>Primary</Button>
-      <Button variant={Constants.Primary} isSelected={true}>
+      <Button variant={Variants.Primary}>Primary</Button>
+      <Button variant={Variants.Primary} isSelected={true}>
         Primary
       </Button>
-      <Button variant={Constants.Pagination}>1</Button>
-      <Button variant={Constants.Slider}>
+      <Button variant={Variants.Pagination}>1</Button>
+      <Button variant={Variants.Slider}>
         <Icon iconId={Icons.ArrowRight} />
       </Button>
-      <Button variant={Constants.Color} color="#FCDBC1" />
-      <Button variant={Constants.Favorites}>
+      <Button variant={Variants.Color} color="#FCDBC1" />
+      <Button variant={Variants.Favorites}>
         <Icon iconId={Icons.Favorites} />
       </Button>
       <div>
@@ -48,37 +48,18 @@ const DemoPage = () => {
       </div>
       <ProductCard
         product={{
-          id: 'apple-iphone-11-128gb-black',
+          id: 1,
           category: 'phones',
-          namespaceId: 'apple-iphone-11',
-          name: 'Apple iPhone 11 128GB Black',
-          capacityAvailable: ['64GB', '128GB', '256GB'],
-          capacity: '128GB',
-          priceRegular: 1100,
-          priceDiscount: 1050,
-          colorsAvailable: [
-            'black',
-            'green',
-            'yellow',
-            'white',
-            'purple',
-            'red',
-          ],
+          itemId: 'apple-iphone-7-32gb-black',
+          name: 'Apple iPhone 7 32GB Black',
+          fullPrice: 400,
+          price: 375,
+          screen: "4.7' IPS",
+          capacity: '32GB',
           color: 'black',
-          images: [
-            'img/phones/apple-iphone-11/black/00.webp',
-            'img/phones/apple-iphone-11/black/01.webp',
-            'img/phones/apple-iphone-11/black/02.webp',
-            'img/phones/apple-iphone-11/black/03.webp',
-            'img/phones/apple-iphone-11/black/04.webp',
-          ],
-          screen: "6.1' IPS",
-          resolution: '1792x828',
-          processor: 'Apple A13 Bionic',
-          ram: '4GB',
-          camera: '12 Mp + 12 Mp + 12MP',
-          zoom: 'Digital, 5x',
-          cell: ['GPRS', 'EDGE', 'WCDMA', 'UMTS', 'HSPA', 'LTE'],
+          ram: '2GB',
+          year: 2016,
+          image: 'img/phones/apple-iphone-7/black/00.webp',
         }}
       />
     </div>
