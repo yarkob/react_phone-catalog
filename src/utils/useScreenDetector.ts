@@ -13,9 +13,10 @@ export const useScreenDetector = () => {
     return () => window.removeEventListener('resize', handleWindowSizeChange);
   }, []);
 
-  const isMobile = width < 640;
-  const isTablet = width >= 640 && width < 1200;
-  const isDesktop = width >= 1200;
+  const isSmallest = width < 420;
+  const isMobile = width >= 420 && width < 640;
+  const isTablet = width >= 640 && width < 1040;
+  const isDesktop = width >= 1040;
 
-  return { isMobile, isTablet, isDesktop };
+  return { isSmallest, isMobile, isTablet, isDesktop };
 };

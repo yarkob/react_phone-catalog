@@ -2,24 +2,13 @@
 @import '../../../styles/mixins';
 
 .container {
-  width: 212px;
-  height: 439px;
   border: 1px solid #E2E6E9;
-
-  @include on-tablet {
-    width: 237px;
-    height: 512px;
-  }
-
-  @include on-desktop {
-    width: 272px;
-    height: 506px;
-  }
 }
 
 .content {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 8px;
   padding: 32px;
 }
@@ -36,6 +25,10 @@
 .name {
   @include typo-body;
 
+  line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 42px;
   padding-top: 16px;
 }
 

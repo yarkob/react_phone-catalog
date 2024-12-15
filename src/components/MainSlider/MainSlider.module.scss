@@ -1,0 +1,39 @@
+@import '../../styles/mixins';
+
+.container {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.swiper {
+  padding-bottom: 32px;
+}
+
+.swiperSlide {
+  aspect-ratio: 1 / 1;
+
+  @include on-tablet {
+    aspect-ratio: 24 / 9;
+  }
+}
+
+.button {
+  display: none;
+  flex-shrink: 0;
+
+  @include on-tablet {
+    display: flex;
+    height: auto;
+    margin-bottom: 32px;
+  }
+}
+
+.image {
+  height: 100%;
+
+  @include on-tablet {
+    width: 100%;
+  }
+}
