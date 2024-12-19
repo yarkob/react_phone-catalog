@@ -1,0 +1,19 @@
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.buttons {
+  margin: 40px 0 80px;
+  display: flex;
+  gap: 16px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.numberButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}

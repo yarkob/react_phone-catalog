@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/bundle';
 
 import { Icons, IMAGES, IMAGES_MOBILE, Variants } from '../../constants';
-import { useScreenDetector } from '../../utils';
+import { useScreenDetector } from '../../hooks';
 import Button from '../ui/Button';
 import { Icon } from '../ui/Icon';
 
