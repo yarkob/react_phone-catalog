@@ -1,4 +1,3 @@
-export declare const addToCart: string;
 export declare const buttons: string;
 export declare const container: string;
 export declare const content: string;
