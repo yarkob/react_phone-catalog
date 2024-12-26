@@ -1,6 +1,7 @@
 import { FC, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-import { Icons, Variants } from '../../constants';
+import { Icons, SearchFields, Variants } from '../../constants';
 import { Product } from '../../types';
 import { getNumbers } from '../../utils';
 import Button from '../ui/Button';
@@ -16,9 +17,19 @@ interface Props {
 
 export const Catalog: FC<Props> = ({ title, products }) => {
   const [itemsPerPage] = useState(16);
-  const [page, setPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const pageStr = searchParams.get(SearchFields.Page);
+  const page = pageStr ? +pageStr : 1;
 
-  const handlePageChange = (newPage: number) => () => setPage(newPage);
+  const handlePageChange = (newPage: number) => () => {
+    if (newPage === 1) {
+      searchParams.delete(SearchFields.Page);
+    } else {
+      searchParams.set(SearchFields.Page, String(newPage));
+    }
+
+    setSearchParams(searchParams);
+  };
 
   // const onChangePerPage = (event: React.ChangeEvent<HTMLSelectElement>) => {
   //   setItemsPerPage(+event.target.value);

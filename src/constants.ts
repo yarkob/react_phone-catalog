@@ -134,3 +134,7 @@ export const CATEGORIES = [
     src: './img/categories/accessories.png',
   },
 ];
+
+export enum SearchFields {
+  Page = 'page',
+}
