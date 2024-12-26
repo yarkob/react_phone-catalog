@@ -1,7 +1,21 @@
+@import '../../styles/mixins';
+
 .catalog {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, minmax(184px, 1fr));
   gap: 10px;
+
+  @include on-mobile {
+    grid-template-columns: repeat(2, minmax(184px, 1fr));
+  }
+
+  @include on-tablet {
+    grid-template-columns: repeat(3, minmax(190px, 1fr));
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(4, minmax(248px, 1fr));
+  }
 }
 
 .buttons {
