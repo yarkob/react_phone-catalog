@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import { SingleValue } from 'react-select';
 
-import { OPTIONS } from '../constants';
+import { ITEMS_ON_PAGE_OPTIONS, SORT_OPTIONS } from '../constants';
 import { Option, Product } from '../types';
 import { noop } from '../utils';
 
@@ -19,8 +19,10 @@ interface IProductsContext {
   setTablets: Dispatch<SetStateAction<Product[]>>;
   accessories: Product[];
   setAccessories: Dispatch<SetStateAction<Product[]>>;
-  option: SingleValue<Option>;
-  setOption: Dispatch<SetStateAction<SingleValue<Option>>>;
+  sortOption: SingleValue<Option>;
+  setSortOption: Dispatch<SetStateAction<SingleValue<Option>>>;
+  itemsPerPage: SingleValue<Option>;
+  setItemsPerPage: Dispatch<SetStateAction<SingleValue<Option>>>;
 }
 
 interface Props {
@@ -34,15 +36,22 @@ export const ProductsContext = createContext<IProductsContext>({
   setTablets: noop,
   accessories: [],
   setAccessories: noop,
-  option: OPTIONS[0],
-  setOption: noop,
+  sortOption: SORT_OPTIONS[0],
+  setSortOption: noop,
+  itemsPerPage: ITEMS_ON_PAGE_OPTIONS[1],
+  setItemsPerPage: noop,
 });
 
 export const ProductsProvider: FC<Props> = ({ children }) => {
   const [phones, setPhones] = useState<Product[]>([]);
   const [tablets, setTablets] = useState<Product[]>([]);
   const [accessories, setAccessories] = useState<Product[]>([]);
-  const [option, setOption] = useState<SingleValue<Option>>(OPTIONS[0]);
+  const [sortOption, setSortOption] = useState<SingleValue<Option>>(
+    SORT_OPTIONS[0],
+  );
+  const [itemsPerPage, setItemsPerPage] = useState<SingleValue<Option>>(
+    ITEMS_ON_PAGE_OPTIONS[1],
+  );
 
   useEffect(() => {
     fetch('api/products.json')
@@ -69,8 +78,10 @@ export const ProductsProvider: FC<Props> = ({ children }) => {
         setTablets,
         accessories,
         setAccessories,
-        option,
-        setOption,
+        sortOption,
+        setSortOption,
+        itemsPerPage,
+        setItemsPerPage,
       }}
     >
       {children}

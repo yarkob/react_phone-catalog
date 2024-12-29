@@ -1,7 +1,6 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import Select, { SingleValue } from 'react-select';
 
-import { ProductsContext } from '../../../context/ProductsContextProvider';
 import { Option } from '../../../types';
 
 import './Dropdown.css';
@@ -11,15 +10,16 @@ interface Props {
   options: Option[];
   className?: string;
   name: string;
+  option: SingleValue<Option>;
+  handleSelect: (currentOption: SingleValue<Option>) => void;
 }
 
-export const Dropdown: FC<Props> = ({ options, name }) => {
-  const { option, setOption } = useContext(ProductsContext);
-
-  const handleSelect = (currentOption: SingleValue<Option>) => {
-    setOption(currentOption);
-  };
-
+export const Dropdown: FC<Props> = ({
+  options,
+  name,
+  option,
+  handleSelect,
+}) => {
   return (
     <div className={s.container}>
       <p className={s.name}>{name}</p>

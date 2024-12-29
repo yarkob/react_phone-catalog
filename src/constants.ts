@@ -139,7 +139,7 @@ export enum SearchFields {
   Page = 'page',
 }
 
-export const OPTIONS = [
+export const SORT_OPTIONS = [
   { value: 'newest', label: 'Newest' },
   { value: 'oldest', label: 'Oldest' },
   { value: 'expensiveFirst', label: 'Expensive first' },
@@ -152,3 +152,10 @@ export const enum SortBy {
   ExpensiveFirst = 'expensiveFirst',
   CheapFirst = 'cheapFirst',
 }
+
+export const ITEMS_ON_PAGE_OPTIONS = [
+  { value: 8, label: '8' },
+  { value: 16, label: '16' },
+  { value: 32, label: '32' },
+  { value: 64, label: '64' },
+];

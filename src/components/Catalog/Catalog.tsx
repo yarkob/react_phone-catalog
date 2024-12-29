@@ -12,22 +12,22 @@ interface Props {
 }
 
 export const Catalog: FC<Props> = ({ title, products }) => {
-  const { option } = useContext(ProductsContext);
+  const { sortOption } = useContext(ProductsContext);
 
   const sortedProducts = [...products].sort((a, b) => {
-    if (option?.value === SortBy.Newest) {
+    if (sortOption?.value === SortBy.Newest) {
       return b.year - a.year;
     }
 
-    if (option?.value === SortBy.Oldest) {
+    if (sortOption?.value === SortBy.Oldest) {
       return a.year - b.year;
     }
 
-    if (option?.value === SortBy.ExpensiveFirst) {
+    if (sortOption?.value === SortBy.ExpensiveFirst) {
       return b.price - a.price;
     }
 
-    if (option?.value === SortBy.CheapFirst) {
+    if (sortOption?.value === SortBy.CheapFirst) {
       return a.price - b.price;
     }
 
