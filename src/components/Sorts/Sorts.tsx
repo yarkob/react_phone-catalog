@@ -7,8 +7,8 @@ import s from './Sorts.module.scss';
 
 export const Sorts: FC = () => {
   return (
-    <div>
-      <Dropdown options={OPTIONS} className={s.dropdown} />
+    <div className={s.container}>
+      <Dropdown name="Sort by" options={OPTIONS} />
     </div>
   );
 };

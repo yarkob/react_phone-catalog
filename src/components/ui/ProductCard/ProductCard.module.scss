@@ -11,6 +11,10 @@
   align-items: stretch;
   gap: 8px;
   padding: 32px;
+
+  &:hover {
+    box-shadow: 0 2px 16px 0 #0000001A;
+  }
 }
 
 .image {

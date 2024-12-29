@@ -1,12 +1,21 @@
 .select__control {
   border: 1px solid #B4BDC3 !important;
   border-radius: 0 !important;
-  width: 176px !important;
+  padding: 0 8px !important;
+  display: flex !important;
+  gap: 64px;
 
 
   &:hover {
     border: 1px solid #89939A !important;
   }
+}
+
+.select__single-value,
+.select__placeholder {
+  position: static;
+  transform: none;
+  max-width: none;
 }
 
 .select__value-container {
@@ -18,7 +27,6 @@
 }
 
 .select__menu {
-  width: 176px !important;
   border: 1px solid #E2E6E9 !important;
   box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.05) !important;
   border-radius: 0 !important;
