@@ -138,3 +138,17 @@ export const CATEGORIES = [
 export enum SearchFields {
   Page = 'page',
 }
+
+export const OPTIONS = [
+  { value: 'newest', label: 'Newest' },
+  { value: 'oldest', label: 'Oldest' },
+  { value: 'expensiveFirst', label: 'Expensive first' },
+  { value: 'cheapFirst', label: 'Cheap first' },
+];
+
+export const enum SortBy {
+  Newest = 'newest',
+  Oldest = 'oldest',
+  ExpensiveFirst = 'expensiveFirst',
+  CheapFirst = 'cheapFirst',
+}
