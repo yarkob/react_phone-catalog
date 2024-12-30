@@ -10,8 +10,8 @@ import s from './Breadcrumbs.module.scss';
 
 export const Breadcrumbs: React.FC = () => {
   const { phones } = useContext(ProductsContext);
-  const url = useLocation().pathname;
-  const breadcrumbs = url.split('/').slice(1);
+  const { pathname } = useLocation();
+  const breadcrumbs = pathname.split('/').slice(1);
 
   return (
     <div className={s.container}>
