@@ -4,8 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import type { SwiperClass } from 'swiper/swiper-react';
 
 import { Icons, Variants } from '../../constants';
+import { useScreenDetector } from '../../hooks';
 import { Product } from '../../types';
-import { useScreenDetector } from '../../utils';
 import Button from '../ui/Button';
 import { Icon } from '../ui/Icon';
 import { ProductCard } from '../ui/ProductCard';

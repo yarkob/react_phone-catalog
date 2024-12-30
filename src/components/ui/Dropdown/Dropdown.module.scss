@@ -1,0 +1,14 @@
+@import '../../../styles/typography';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: fit-content;
+}
+
+.name {
+  @include typo-small;
+
+  color: var(--secondary-color);
+}

@@ -5,6 +5,12 @@
   border: $border;
 }
 
+@mixin on-mobile() {
+  @media (min-width: 420px) {
+    @content;
+  }
+}
+
 @mixin on-tablet() {
   @media (min-width: 640px) {
     @content;

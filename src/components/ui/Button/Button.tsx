@@ -30,6 +30,7 @@ const Button: FC<Props> = ({
         [s.primary]: variant === Variants.Primary,
         [s.primarySelected]: variant === Variants.Primary && isSelected,
         [s.pagination]: variant === Variants.Pagination,
+        [s.paginationSelected]: variant === Variants.Pagination && isSelected,
         [s.slider]: variant === Variants.Slider,
         [s.color]: variant === Variants.Color,
         [s.favorites]: variant === Variants.Favorites,

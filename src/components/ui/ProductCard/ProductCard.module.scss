@@ -11,6 +11,10 @@
   align-items: stretch;
   gap: 8px;
   padding: 32px;
+
+  &:hover {
+    box-shadow: 0 2px 16px 0 #0000001A;
+  }
 }
 
 .image {
@@ -83,21 +87,8 @@
   gap: 8px;
 }
 
-.addToCart {
-  width: 100px;
-
-  @include on-tablet {
-    width: 125px;
-  }
-
-  @include on-desktop {
-    width: 160px;
-  }
-}
-
 .favorite {
-  width: 40px;
-  height: 40px;
+  aspect-ratio: 1 / 1;
 }
 
 .filled {

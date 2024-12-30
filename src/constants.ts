@@ -1,3 +1,5 @@
+import { Option } from './types';
+
 export enum Variants {
   Pagination = 'pagination',
   Slider = 'slider',
@@ -133,4 +135,31 @@ export const CATEGORIES = [
     alt: 'accessories',
     src: './img/categories/accessories.png',
   },
+];
+
+export enum SearchFields {
+  Page = 'page',
+  Sort = 'sort',
+  ItemsPerPage = 'itemsPerPage',
+}
+
+export const SORT_OPTIONS: Option[] = [
+  { value: 'newest', label: 'Newest' },
+  { value: 'oldest', label: 'Oldest' },
+  { value: 'expensiveFirst', label: 'Expensive first' },
+  { value: 'cheapFirst', label: 'Cheap first' },
+];
+
+export const enum SortBy {
+  Newest = 'newest',
+  Oldest = 'oldest',
+  ExpensiveFirst = 'expensiveFirst',
+  CheapFirst = 'cheapFirst',
+}
+
+export const ITEMS_ON_PAGE_OPTIONS: Option[] = [
+  { value: 8, label: '8' },
+  { value: 16, label: '16' },
+  { value: 32, label: '32' },
+  { value: 64, label: '64' },
 ];
