@@ -1,0 +1,1 @@
+export { AccessoryDetails } from './AccessoryDetails';

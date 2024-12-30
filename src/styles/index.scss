@@ -1,0 +1,10 @@
+@import 'variables';
+@import 'fonts';
+@import 'typography';
+@import 'mixins';
+@import 'reset';
+
+html {
+  font-family: Mont, sans-serif;
+  color: var(--primary-color);
+}

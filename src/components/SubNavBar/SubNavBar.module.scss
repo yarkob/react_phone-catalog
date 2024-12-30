@@ -1,0 +1,70 @@
+@import '../../styles/mixins';
+
+.container {
+  display: none;
+
+  @include on-tablet {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 0;
+  }
+}
+
+.onMobile {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  padding: 24px 0;
+
+  @include on-tablet {
+    box-shadow: -1px 0 0 0 #E2E6E9;
+    padding: 16px;
+  }
+
+  @include on-desktop {
+    padding: 24px;
+  }
+}
+
+.iconSelected {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    bottom: 0;
+  }
+
+  @include on-desktop {
+    &::before {
+      width: 48px;
+    }
+  }
+
+  @include on-desktop {
+    &::before {
+      width: 64px;
+    }
+  }
+}
+
+.link {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include on-tablet {
+    all: unset;
+  }
+}

@@ -1,0 +1,26 @@
+@import '../../styles/mixins';
+@import '../../styles/typography';
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.title {
+  @include typo-h2-mobile;
+
+  color: var(--primary-color);
+
+  @include on-tablet {
+    @include typo-h2;
+  }
+}

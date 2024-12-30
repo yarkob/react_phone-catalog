@@ -1,0 +1,51 @@
+@import '../../styles/typography';
+@import '../../styles/mixins';
+
+.container {
+  padding: 0 16px;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include on-tablet {
+    flex-direction: row;
+    gap: 16px;
+    padding: 0;
+  }
+}
+
+.image {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.title {
+  @include typo-h2-mobile;
+
+  margin-bottom: 24px;
+  color: var(--primary-color);
+
+  @include on-tablet {
+    @include typo-h2;
+  }
+}
+
+.category {
+  text-decoration: none;
+}
+
+.categoryName {
+  @include typo-h4;
+
+  color: var(--primary-color);
+}
+
+.models {
+  @include typo-body;
+
+  color: var(--secondary-color);
+}

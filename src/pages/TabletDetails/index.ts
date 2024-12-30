@@ -1,0 +1,1 @@
+export { TabletDetails } from './TabletDetails';

@@ -1,0 +1,32 @@
+@import '../../styles/typography';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  height: 16px;
+}
+
+.breadcrumb {
+  height: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.homeIcon {
+  height: 16px;
+}
+
+.icon {
+  fill: var(--icons-color);
+}
+
+.link {
+  @include typo-small;
+
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin-left: 8px;
+}

@@ -1,0 +1,25 @@
+@import '../../styles/typography';
+@import '../../styles/mixins';
+
+.title {
+  @include typo-h1-mobile;
+
+  margin: 24px 16px;
+  color: var(--primary-color);
+
+  @include on-tablet {
+    @include typo-h1;
+
+    margin: 56px 0;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content > * {
+  margin-bottom: 80px;
+}
