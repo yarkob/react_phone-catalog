@@ -1,3 +1,5 @@
+import { Option } from './types';
+
 export enum Variants {
   Pagination = 'pagination',
   Slider = 'slider',
@@ -137,9 +139,11 @@ export const CATEGORIES = [
 
 export enum SearchFields {
   Page = 'page',
+  Sort = 'sort',
+  ItemsPerPage = 'itemsPerPage',
 }
 
-export const SORT_OPTIONS = [
+export const SORT_OPTIONS: Option[] = [
   { value: 'newest', label: 'Newest' },
   { value: 'oldest', label: 'Oldest' },
   { value: 'expensiveFirst', label: 'Expensive first' },
@@ -153,7 +157,7 @@ export const enum SortBy {
   CheapFirst = 'cheapFirst',
 }
 
-export const ITEMS_ON_PAGE_OPTIONS = [
+export const ITEMS_ON_PAGE_OPTIONS: Option[] = [
   { value: 8, label: '8' },
   { value: 16, label: '16' },
   { value: 32, label: '32' },

@@ -1,7 +1,7 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-import { SortBy } from '../../constants';
-import { ProductsContext } from '../../context/ProductsContextProvider';
+import { SearchFields, SORT_OPTIONS, SortBy } from '../../constants';
 import { Product } from '../../types';
 import { Pagination } from '../Pagination';
 import { Sorts } from '../Sorts';
@@ -12,7 +12,9 @@ interface Props {
 }
 
 export const Catalog: FC<Props> = ({ title, products }) => {
-  const { sortOption } = useContext(ProductsContext);
+  const [searchParams] = useSearchParams();
+  const sortParam = searchParams.get(SearchFields.Sort);
+  const sortOption = SORT_OPTIONS.find(option => option.value === sortParam);
 
   const sortedProducts = [...products].sort((a, b) => {
     if (sortOption?.value === SortBy.Newest) {

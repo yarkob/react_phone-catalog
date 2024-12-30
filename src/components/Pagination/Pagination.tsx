@@ -1,4 +1,4 @@
-import { FC, useContext, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import {
@@ -7,7 +7,6 @@ import {
   SearchFields,
   Variants,
 } from '../../constants';
-import { ProductsContext } from '../../context/ProductsContextProvider';
 import { Product } from '../../types';
 import { getNumbers } from '../../utils';
 import Button from '../ui/Button';
@@ -21,10 +20,17 @@ interface Props {
 }
 
 export const Pagination: FC<Props> = ({ products }) => {
-  const { itemsPerPage } = useContext(ProductsContext);
   const [searchParams, setSearchParams] = useSearchParams();
   const pageStr = searchParams.get(SearchFields.Page);
   const page = pageStr ? +pageStr : 1;
+  const itemsPerPageParam = searchParams.get(SearchFields.ItemsPerPage);
+  const itemsPerPage = ITEMS_ON_PAGE_OPTIONS.find(option => {
+    if (!itemsPerPageParam) {
+      return ITEMS_ON_PAGE_OPTIONS[1];
+    }
+
+    return option.value === +itemsPerPageParam;
+  });
   const itemsOnPage = itemsPerPage
     ? +itemsPerPage.value
     : +ITEMS_ON_PAGE_OPTIONS[1].value;
