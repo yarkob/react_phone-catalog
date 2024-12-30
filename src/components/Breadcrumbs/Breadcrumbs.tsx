@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 import { Icons } from '../../constants';
 import { ProductsContext } from '../../context/ProductsContextProvider';
@@ -9,8 +9,9 @@ import { Icon } from '../ui/Icon';
 import s from './Breadcrumbs.module.scss';
 
 export const Breadcrumbs: React.FC = () => {
-  const { phones } = useContext(ProductsContext);
+  const { products } = useContext(ProductsContext);
   const { pathname } = useLocation();
+  const { productId } = useParams();
   const breadcrumbs = pathname.split('/').slice(1);
 
   return (
@@ -18,18 +19,24 @@ export const Breadcrumbs: React.FC = () => {
       <Link to={`/`} className={s.homeIcon}>
         <Icon iconId={Icons.Home} />
       </Link>
-      {breadcrumbs.map(breadcrumb => {
-        const name = phones.find(phone => phone.itemId === breadcrumb)?.name;
-
-        return (
-          <div key={breadcrumb} className={s.breadcrumb}>
-            <Icon iconId={Icons.ArrowRight} className={s.icon} />
-            <Link to={`/${breadcrumb}`} className={s.link}>
-              {breadcrumbs.length > 1 ? name : capitalize(breadcrumb)}
-            </Link>
-          </div>
-        );
-      })}
+      {breadcrumbs.map(breadcrumb => (
+        <div key={breadcrumb} className={s.breadcrumb}>
+          <Icon iconId={Icons.ArrowRight} className={s.icon} />
+          <Link to={`/${breadcrumb}`} className={s.link}>
+            {capitalize(breadcrumb)}
+          </Link>
+        </div>
+      ))}
+      {productId ? (
+        <div className={s.breadcrumb}>
+          <Icon iconId={Icons.ArrowRight} className={s.icon} />
+          <Link to={`${pathname}/${productId}`} className={s.link}>
+            {products.find(product => product.id === +productId)?.name}
+          </Link>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };
