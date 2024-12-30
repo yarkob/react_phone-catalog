@@ -1,1 +1,26 @@
-/* styles */
+@import "../../styles/typography";
+@import "../../styles/mixins";
+
+.titleContainer {
+  margin: 24px 0 32px;
+
+  @include on-tablet {
+    margin: 40px 0;
+  }
+}
+
+.title {
+  @include typo-h1-mobile;
+
+  margin-bottom: 8px;
+
+  @include on-tablet {
+    @include typo-h1;
+  }
+}
+
+.numberOfModels {
+  @include typo-body;
+
+  color: var(--secondary-color);
+}
