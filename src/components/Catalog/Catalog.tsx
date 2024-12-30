@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import { SearchFields, SORT_OPTIONS, SortBy } from '../../constants';
 import { Product } from '../../types';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { Pagination } from '../Pagination';
 import { Sorts } from '../Sorts';
 
@@ -40,6 +41,7 @@ export const Catalog: FC<Props> = ({ title, products }) => {
 
   return (
     <div>
+      <Breadcrumbs />
       <div className={s.titleContainer}>
         <h1 className={s.title}>{title}</h1>
         <p className={s.numberOfModels}>{products.length} models</p>

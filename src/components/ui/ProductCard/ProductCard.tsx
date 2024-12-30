@@ -55,7 +55,6 @@ export const ProductCard: FC<Props> = ({ product }) => {
             onClick={addToCartHandler}
             isSelected={isSelected}
             variant={Variants.Primary}
-            className={s.addToCart}
           >
             {isSelected ? 'Added' : 'Add to cart'}
           </Button>

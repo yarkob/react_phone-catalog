@@ -11,6 +11,8 @@ import { Product } from '../types';
 import { noop } from '../utils';
 
 interface IProductsContext {
+  products: Product[];
+  setProducts: Dispatch<SetStateAction<Product[]>>;
   phones: Product[];
   setPhones: Dispatch<SetStateAction<Product[]>>;
   tablets: Product[];
@@ -24,6 +26,8 @@ interface Props {
 }
 
 export const ProductsContext = createContext<IProductsContext>({
+  products: [],
+  setProducts: noop,
   phones: [],
   setPhones: noop,
   tablets: [],
@@ -33,6 +37,7 @@ export const ProductsContext = createContext<IProductsContext>({
 });
 
 export const ProductsProvider: FC<Props> = ({ children }) => {
+  const [products, setProducts] = useState<Product[]>([]);
   const [phones, setPhones] = useState<Product[]>([]);
   const [tablets, setTablets] = useState<Product[]>([]);
   const [accessories, setAccessories] = useState<Product[]>([]);
@@ -56,6 +61,8 @@ export const ProductsProvider: FC<Props> = ({ children }) => {
   return (
     <ProductsContext.Provider
       value={{
+        products,
+        setProducts,
         phones,
         setPhones,
         tablets,
