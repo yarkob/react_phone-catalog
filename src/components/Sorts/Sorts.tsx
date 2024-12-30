@@ -17,9 +17,9 @@ export const Sorts: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const sortParam = searchParams.get(SearchFields.Sort);
   const itemsPerPageParam = searchParams.get(SearchFields.ItemsPerPage);
-  const sortOption = SORT_OPTIONS.find(option => option?.value === sortParam);
+  const sortOption = SORT_OPTIONS.find(option => option.value === sortParam);
   const itemsPerPage = ITEMS_ON_PAGE_OPTIONS.find(
-    option => String(option?.value) === itemsPerPageParam,
+    option => String(option.value) === itemsPerPageParam,
   );
 
   const handleSort = (currentOption: SingleValue<Option>) => {
@@ -53,13 +53,13 @@ export const Sorts: FC = () => {
   return (
     <div className={s.container}>
       <Dropdown
-        option={sortOption ? sortOption : SORT_OPTIONS[0]}
+        option={sortOption || SORT_OPTIONS[0]}
         handleSelect={handleSort}
         name="Sort by"
         options={SORT_OPTIONS}
       />
       <Dropdown
-        option={itemsPerPage ? itemsPerPage : ITEMS_ON_PAGE_OPTIONS[1]}
+        option={itemsPerPage || ITEMS_ON_PAGE_OPTIONS[1]}
         handleSelect={handleItemsPerPage}
         options={ITEMS_ON_PAGE_OPTIONS}
         name="Items on page"

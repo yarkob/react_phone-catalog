@@ -21,14 +21,12 @@ interface Props {
 
 export const Pagination: FC<Props> = ({ products }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const pageStr = searchParams.get(SearchFields.Page);
-  const page = pageStr ? +pageStr : 1;
-  const itemsPerPageParam = searchParams.get(SearchFields.ItemsPerPage);
+  const pageParam = searchParams.get(SearchFields.Page);
+  const page = pageParam ? +pageParam : 1;
+  const itemsPerPageParam =
+    searchParams.get(SearchFields.ItemsPerPage) ||
+    ITEMS_ON_PAGE_OPTIONS[1].value;
   const itemsPerPage = ITEMS_ON_PAGE_OPTIONS.find(option => {
-    if (!itemsPerPageParam) {
-      return ITEMS_ON_PAGE_OPTIONS[1];
-    }
-
     return option.value === +itemsPerPageParam;
   });
   const itemsOnPage = itemsPerPage

@@ -15,7 +15,7 @@ interface Props {
 
 export const Catalog: FC<Props> = ({ title, products }) => {
   const [searchParams] = useSearchParams();
-  const sortParam = searchParams.get(SearchFields.Sort);
+  const sortParam = searchParams.get(SearchFields.Sort) || SortBy.Newest;
   const sortOption = SORT_OPTIONS.find(option => option.value === sortParam);
 
   const sortedProducts = [...products].sort((a, b) => {
