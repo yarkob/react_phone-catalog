@@ -6,6 +6,7 @@ import {
   ITEMS_ON_PAGE_OPTIONS,
   SearchFields,
   SORT_OPTIONS,
+  SortBy,
 } from '../../constants';
 import { Option } from '../../types';
 import { Dropdown } from '../ui/Dropdown';
@@ -26,7 +27,11 @@ export const Sorts: FC = () => {
       return;
     }
 
-    searchParams.set(SearchFields.Sort, String(currentOption.value));
+    if (currentOption.value === SortBy.Newest) {
+      searchParams.delete(SearchFields.Sort);
+    } else {
+      searchParams.set(SearchFields.Sort, String(currentOption.value));
+    }
 
     setSearchParams(searchParams);
   };
@@ -36,7 +41,11 @@ export const Sorts: FC = () => {
       return;
     }
 
-    searchParams.set(SearchFields.ItemsPerPage, String(currentOption.value));
+    if (currentOption.value === 16) {
+      searchParams.delete(SearchFields.ItemsPerPage);
+    } else {
+      searchParams.set(SearchFields.ItemsPerPage, String(currentOption.value));
+    }
 
     setSearchParams(searchParams);
   };
