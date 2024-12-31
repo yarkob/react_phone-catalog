@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
 import { Icons, Variants } from '../../../constants';
@@ -25,7 +26,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
   };
 
   return (
-    <div className={s.container}>
+    <Link to={`/${product.category}/${product.itemId}`} className={s.container}>
       <div className={s.content}>
         <img className={s.image} alt="phone" src={`./${product.image}`} />
         <p title={product.name} className={s.name}>
@@ -73,6 +74,6 @@ export const ProductCard: FC<Props> = ({ product }) => {
           </Button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
