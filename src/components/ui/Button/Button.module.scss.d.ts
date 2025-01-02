@@ -1,3 +1,4 @@
+export declare const back: string;
 export declare const button: string;
 export declare const color: string;
 export declare const favorites: string;
