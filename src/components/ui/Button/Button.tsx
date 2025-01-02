@@ -23,9 +23,13 @@ const Button: FC<Props> = ({
   onClick,
   className,
 }) => {
+  const handleBack = () => {
+    window.history.back();
+  };
+
   return (
     <button
-      onClick={onClick}
+      onClick={Variants.Back ? handleBack : onClick}
       className={cn(s.button, className, {
         [s.primary]: variant === Variants.Primary,
         [s.primarySelected]: variant === Variants.Primary && isSelected,
@@ -34,6 +38,7 @@ const Button: FC<Props> = ({
         [s.slider]: variant === Variants.Slider,
         [s.color]: variant === Variants.Color,
         [s.favorites]: variant === Variants.Favorites,
+        [s.back]: variant === Variants.Back,
       })}
     >
       {variant === Variants.Color ? (

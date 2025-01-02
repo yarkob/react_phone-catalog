@@ -1,0 +1,17 @@
+@import '../../styles/typography';
+
+.name {
+  @include typo-h2;
+
+  margin-bottom: 40px;
+}
+
+.backButton {
+  margin: 40px 0 16px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  column-gap: 16px;
+}

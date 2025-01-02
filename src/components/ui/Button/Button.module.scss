@@ -1,5 +1,6 @@
 @import '../../../styles/fonts';
 @import '../../../styles/mixins';
+@import '../../../styles/typography';
 
 .button {
   cursor: pointer;
@@ -103,5 +104,22 @@
 
   &:focus {
     border-color: var(--elements-color);
+  }
+}
+
+.back {
+  @include typo-small;
+
+  display: flex;
+  gap: 4px;
+  background-color: transparent;
+  border: none;
+  height: 16px;
+  text-align: center;
+  align-items: flex-end;
+  color: var(--secondary-color);
+
+  &:hover {
+    color: var(--primary-color);
   }
 }
