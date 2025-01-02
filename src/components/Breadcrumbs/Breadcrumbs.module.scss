@@ -26,7 +26,11 @@
 .link {
   @include typo-small;
 
-  color: var(--secondary-color);
+  color: var(--primary-color);
   text-decoration: none;
   margin-left: 8px;
+}
+
+.currentLink {
+  color: var(--secondary-color);
 }
