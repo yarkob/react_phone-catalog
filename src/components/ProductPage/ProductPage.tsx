@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { Icons, Variants } from '../../constants';
-import { Product } from '../../types';
+import { FullProduct } from '../../types/Phone';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import Button from '../ui/Button';
 import { Icon } from '../ui/Icon';
@@ -9,7 +9,7 @@ import { Icon } from '../ui/Icon';
 import s from './ProductPage.module.scss';
 
 interface Props {
-  product: Product | undefined;
+  product: FullProduct | undefined;
 }
 
 export const ProductPage: FC<Props> = ({ product }) => {
