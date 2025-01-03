@@ -26,7 +26,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
   };
 
   return (
-    <Link to={`/${product.category}/${product.itemId}`}>
+    <Link to={`/${product.category}/${product.itemId}`} className={s.link}>
       <div className={s.container}>
         <div className={s.content}>
           <img className={s.image} alt="phone" src={`./${product.image}`} />

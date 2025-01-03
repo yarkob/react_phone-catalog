@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { Icons, Variants } from '../../constants';
 import { FullProduct } from '../../types/Phone';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
+import { ProductPageSlider } from '../ProductPageSlider';
 import Button from '../ui/Button';
 import { Icon } from '../ui/Icon';
 
@@ -27,7 +28,9 @@ export const ProductPage: FC<Props> = ({ product }) => {
         Back
       </Button>
       <h2 className={s.name}>{name}</h2>
-      <div className={s.content}></div>
+      <div className={s.content}>
+        <ProductPageSlider images={product.images} />
+      </div>
     </div>
   );
 };
