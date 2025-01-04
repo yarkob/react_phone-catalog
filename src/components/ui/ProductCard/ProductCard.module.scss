@@ -1,10 +1,13 @@
 @import '../../../styles/typography';
 @import '../../../styles/mixins';
 
-.container {
-  border: 1px solid #E2E6E9;
+.link {
   text-decoration: none;
   color: var(--primary-color);
+}
+
+.container {
+  border: 1px solid #E2E6E9;
 }
 
 .content {

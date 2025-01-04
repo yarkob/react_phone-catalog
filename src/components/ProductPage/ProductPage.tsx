@@ -1,15 +1,16 @@
 import { FC } from 'react';
 
 import { Icons, Variants } from '../../constants';
-import { Product } from '../../types';
+import { FullProduct } from '../../types/Phone';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
+import { ProductPageSlider } from '../ProductPageSlider';
 import Button from '../ui/Button';
 import { Icon } from '../ui/Icon';
 
 import s from './ProductPage.module.scss';
 
 interface Props {
-  product: Product | undefined;
+  product: FullProduct | undefined;
 }
 
 export const ProductPage: FC<Props> = ({ product }) => {
@@ -27,7 +28,9 @@ export const ProductPage: FC<Props> = ({ product }) => {
         Back
       </Button>
       <h2 className={s.name}>{name}</h2>
-      <div className={s.content}></div>
+      <div className={s.content}>
+        <ProductPageSlider images={product.images} className={s.slider} />
+      </div>
     </div>
   );
 };

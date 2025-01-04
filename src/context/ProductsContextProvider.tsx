@@ -7,7 +7,9 @@ import React, {
   useState,
 } from 'react';
 
+import { useFetchProducts } from '../hooks/useFetchProducts';
 import { Product } from '../types';
+import { FullProduct } from '../types/Phone';
 import { noop } from '../utils';
 
 interface IProductsContext {
@@ -15,10 +17,16 @@ interface IProductsContext {
   setProducts: Dispatch<SetStateAction<Product[]>>;
   phones: Product[];
   setPhones: Dispatch<SetStateAction<Product[]>>;
+  fullPhones: FullProduct[];
+  setFullPhones: Dispatch<SetStateAction<FullProduct[]>>;
   tablets: Product[];
   setTablets: Dispatch<SetStateAction<Product[]>>;
+  fullTablets: FullProduct[];
+  setFullTablets: Dispatch<SetStateAction<FullProduct[]>>;
   accessories: Product[];
   setAccessories: Dispatch<SetStateAction<Product[]>>;
+  fullAccessories: FullProduct[];
+  setFullAccessories: Dispatch<SetStateAction<FullProduct[]>>;
 }
 
 interface Props {
@@ -30,17 +38,26 @@ export const ProductsContext = createContext<IProductsContext>({
   setProducts: noop,
   phones: [],
   setPhones: noop,
+  fullPhones: [],
+  setFullPhones: noop,
   tablets: [],
   setTablets: noop,
+  fullTablets: [],
+  setFullTablets: noop,
   accessories: [],
   setAccessories: noop,
+  fullAccessories: [],
+  setFullAccessories: noop,
 });
 
 export const ProductsProvider: FC<Props> = ({ children }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [phones, setPhones] = useState<Product[]>([]);
+  const [fullPhones, setFullPhones] = useState<FullProduct[]>([]);
   const [tablets, setTablets] = useState<Product[]>([]);
+  const [fullTablets, setFullTablets] = useState<FullProduct[]>([]);
   const [accessories, setAccessories] = useState<Product[]>([]);
+  const [fullAccessories, setFullAccessories] = useState<FullProduct[]>([]);
 
   useEffect(() => {
     fetch('api/products.json')
@@ -58,6 +75,10 @@ export const ProductsProvider: FC<Props> = ({ children }) => {
       });
   }, []);
 
+  useFetchProducts('api/phones.json', setFullPhones);
+  useFetchProducts('api/tablets.json', setFullTablets);
+  useFetchProducts('api/accessories.json', setFullAccessories);
+
   return (
     <ProductsContext.Provider
       value={{
@@ -65,10 +86,16 @@ export const ProductsProvider: FC<Props> = ({ children }) => {
         setProducts,
         phones,
         setPhones,
+        fullPhones,
+        setFullPhones,
         tablets,
         setTablets,
+        fullTablets,
+        setFullTablets,
         accessories,
         setAccessories,
+        fullAccessories,
+        setFullAccessories,
       }}
     >
       {children}

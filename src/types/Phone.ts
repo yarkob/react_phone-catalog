@@ -1,6 +1,6 @@
 import { Description } from './Description';
 
-export interface Phone {
+export interface FullProduct {
   id: string;
   category: string;
   namespaceId: string;

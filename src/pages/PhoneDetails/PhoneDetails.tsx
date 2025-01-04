@@ -5,9 +5,9 @@ import { ProductPage } from '../../components/ProductPage';
 import { ProductsContext } from '../../context/ProductsContextProvider';
 
 export const PhoneDetails = () => {
-  const { phones } = useContext(ProductsContext);
+  const { fullPhones } = useContext(ProductsContext);
   const { productId } = useParams();
-  const product = phones.find(phone => phone.itemId === productId);
+  const product = fullPhones.find(fullPhone => fullPhone.id === productId);
 
   return (
     <div>

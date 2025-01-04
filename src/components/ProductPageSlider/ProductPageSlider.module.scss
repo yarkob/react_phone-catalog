@@ -1,0 +1,71 @@
+@import '../../styles/mixins';
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  @include on-tablet {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+.controls {
+  order: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  grid-column: span 4;
+
+  @include on-tablet {
+    order: 1;
+    flex-direction: column;
+    grid-column: span 1;
+  }
+
+  @include on-desktop {
+    gap: 16px;
+    grid-column: span 2;
+  }
+}
+
+.control {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.controlImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.slider {
+  order: 1;
+  display: flex;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  grid-column: span 4;
+  height: 100%;
+
+  @include on-tablet {
+    order: 2;
+    grid-column: span 5;
+  }
+
+  @include on-desktop {
+    grid-column: span 10;
+  }
+}
+
+.image {
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}

@@ -5,6 +5,7 @@ export declare const favorite: string;
 export declare const filled: string;
 export declare const image: string;
 export declare const line: string;
+export declare const link: string;
 export declare const name: string;
 export declare const price: string;
 export declare const priceDiscount: string;
