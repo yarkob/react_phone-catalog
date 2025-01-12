@@ -163,3 +163,23 @@ export const ITEMS_ON_PAGE_OPTIONS: Option[] = [
   { value: 32, label: '32' },
   { value: 64, label: '64' },
 ];
+
+export const COLORS = {
+  black: '#282A29',
+  green: '#BDE9D8',
+  purple: '#D8D4DE',
+  red: '#CA243C',
+  white: '#FFFBF7',
+  yellow: '#FFE98B',
+  gold: '#FDDBC0',
+  midnightgreen: '#646E66',
+  silver: '#F3F1ED',
+  spacegray: '#676664',
+  rosegold: '#F4CAC4',
+  midnight: '#1B232C',
+  pink: '#FEE4DF',
+  graphite: '#6F6B67',
+  sierrablue: 'A0B9D4',
+  spaceblack: '#575350',
+  coral: '#FF6E5C',
+};
