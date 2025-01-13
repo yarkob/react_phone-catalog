@@ -29,7 +29,7 @@ const Button: FC<Props> = ({
 
   return (
     <button
-      onClick={Variants.Back ? handleBack : onClick}
+      onClick={variant === Variants.Back ? handleBack : onClick}
       className={cn(s.button, className, {
         [s.primary]: variant === Variants.Primary,
         [s.primarySelected]: variant === Variants.Primary && isSelected,

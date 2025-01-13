@@ -31,7 +31,7 @@ export const ProductPage: FC<Props> = ({ product }) => {
       <h2 className={s.name}>{name}</h2>
       <div className={s.content}>
         <ProductPageSlider images={product.images} className={s.slider} />
-        <ProductVariants colors={product.colorsAvailable} />
+        <ProductVariants product={product} />
       </div>
     </div>
   );
