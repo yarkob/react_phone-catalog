@@ -7,6 +7,7 @@ export enum Variants {
   Color = 'color',
   Favorites = 'favorites',
   Back = 'back',
+  Basic = 'basic',
 }
 
 export enum Icons {

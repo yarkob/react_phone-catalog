@@ -39,6 +39,8 @@ const Button: FC<Props> = ({
         [s.color]: variant === Variants.Color,
         [s.favorites]: variant === Variants.Favorites,
         [s.back]: variant === Variants.Back,
+        [s.basic]: variant === Variants.Basic,
+        [s.basicSelected]: variant === Variants.Basic && isSelected,
       })}
     >
       {variant === Variants.Color ? (

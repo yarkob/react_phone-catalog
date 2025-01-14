@@ -123,3 +123,27 @@
     color: var(--primary-color);
   }
 }
+
+.basic {
+  @include typo-body;
+
+  background-color: transparent;
+  text-align: center;
+  border: 1px solid var(--icons-color);
+
+  &:hover {
+    border-color: var(--primary-color);
+  }
+
+  &:focus {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+}
+
+.basicSelected {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
