@@ -6,6 +6,7 @@ import { Icons, Variants } from '../../../constants';
 import { Product } from '../../../types';
 import Button from '../Button';
 import { Icon } from '../Icon';
+import { Line } from '../Line';
 
 import s from './ProductCard.module.scss';
 
@@ -37,7 +38,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
             <span className={s.priceDiscount}>${product.price}</span>
             <span className={s.priceRegular}>${product.fullPrice}</span>
           </div>
-          <span className={s.line} />
+          <Line />
           <div className={s.specs}>
             <div className={s.spec}>
               <span className={s.specName}>Screen</span>
