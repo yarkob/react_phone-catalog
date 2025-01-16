@@ -1,3 +1,4 @@
+export declare const about: string;
 export declare const backButton: string;
 export declare const content: string;
 export declare const name: string;

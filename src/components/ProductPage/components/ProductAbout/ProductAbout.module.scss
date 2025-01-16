@@ -1,0 +1,29 @@
+@import '../../../../styles/typography';
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.line {
+  margin-bottom: 32px;
+}
+
+.title {
+  @include typo-h3;
+
+  margin-bottom: 16px;
+}
+
+.subTitle {
+  @include typo-h4;
+
+  margin-bottom: 16px;
+}
+
+.text {
+  @include typo-body;
+
+  color: var(--secondary-color);
+}
