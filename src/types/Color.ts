@@ -1,0 +1,18 @@
+export type Color =
+  | 'black'
+  | 'green'
+  | 'purple'
+  | 'red'
+  | 'white'
+  | 'yellow'
+  | 'gold'
+  | 'midnightgreen'
+  | 'silver'
+  | 'spacegray'
+  | 'rosegold'
+  | 'midnight'
+  | 'pink'
+  | 'graphite'
+  | 'sierrablue'
+  | 'spaceblack'
+  | 'coral';

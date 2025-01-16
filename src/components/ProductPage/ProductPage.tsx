@@ -4,6 +4,7 @@ import { Icons, Variants } from '../../constants';
 import { FullProduct } from '../../types/Phone';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { ProductPageSlider } from '../ProductPageSlider';
+import { ProductVariants } from '../ProductVariants';
 import Button from '../ui/Button';
 import { Icon } from '../ui/Icon';
 
@@ -30,6 +31,9 @@ export const ProductPage: FC<Props> = ({ product }) => {
       <h2 className={s.name}>{name}</h2>
       <div className={s.content}>
         <ProductPageSlider images={product.images} className={s.slider} />
+        <div className={s.variants}>
+          <ProductVariants product={product} />
+        </div>
       </div>
     </div>
   );
