@@ -1,14 +1,13 @@
 export declare const buttons: string;
+export declare const capacityTitle: string;
 export declare const container: string;
-export declare const content: string;
 export declare const favorite: string;
 export declare const filled: string;
-export declare const image: string;
-export declare const link: string;
-export declare const name: string;
 export declare const price: string;
+export declare const priceAndSpecs: string;
 export declare const priceDiscount: string;
 export declare const priceRegular: string;
+export declare const select: string;
 export declare const spec: string;
 export declare const specName: string;
 export declare const specs: string;

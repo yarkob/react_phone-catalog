@@ -1,4 +1,6 @@
 export declare const back: string;
+export declare const basic: string;
+export declare const basicSelected: string;
 export declare const button: string;
 export declare const color: string;
 export declare const favorites: string;

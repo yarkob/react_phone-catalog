@@ -29,7 +29,7 @@ const Button: FC<Props> = ({
 
   return (
     <button
-      onClick={Variants.Back ? handleBack : onClick}
+      onClick={variant === Variants.Back ? handleBack : onClick}
       className={cn(s.button, className, {
         [s.primary]: variant === Variants.Primary,
         [s.primarySelected]: variant === Variants.Primary && isSelected,
@@ -39,6 +39,8 @@ const Button: FC<Props> = ({
         [s.color]: variant === Variants.Color,
         [s.favorites]: variant === Variants.Favorites,
         [s.back]: variant === Variants.Back,
+        [s.basic]: variant === Variants.Basic,
+        [s.basicSelected]: variant === Variants.Basic && isSelected,
       })}
     >
       {variant === Variants.Color ? (

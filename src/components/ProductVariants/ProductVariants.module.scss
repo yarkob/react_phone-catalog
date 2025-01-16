@@ -1,0 +1,82 @@
+@import '../../styles/typography';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.select {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.capacityTitle {
+  @include typo-small;
+
+  color: var(--secondary-color);
+  margin-bottom: 8px;
+}
+
+.price {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.priceDiscount {
+  @include typo-h3;
+}
+
+.priceRegular {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+  text-decoration: line-through;
+  color: var(--secondary-color);
+  margin: 1.5px 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.favorite {
+  aspect-ratio: 1 / 1;
+}
+
+.filled {
+  fill: #EB5757;
+}
+
+.priceAndSpecs {
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.specs {
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spec {
+  display: flex;
+  justify-content: space-between;
+}
+
+.specName {
+  @include typo-small;
+
+  color: var(--secondary-color);
+}
+
+.specValue {
+  @include typo-small;
+}

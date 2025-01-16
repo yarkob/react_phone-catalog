@@ -1,3 +1,4 @@
+import { Color } from './Color';
 import { Description } from './Description';
 
 export interface FullProduct {
@@ -9,7 +10,7 @@ export interface FullProduct {
   capacity: string;
   priceRegular: number;
   priceDiscount: number;
-  colorsAvailable: string[];
+  colorsAvailable: Color[];
   color: string;
   images: string[];
   description: Description[];
