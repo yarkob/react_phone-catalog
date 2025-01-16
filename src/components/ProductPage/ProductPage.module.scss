@@ -36,3 +36,16 @@
     grid-column: span 12;
   }
 }
+
+.variants {
+  margin-top: 40px;
+  grid-column: span 4;
+
+  @include on-tablet {
+    grid-column: span 5;
+  }
+
+  @include on-desktop {
+    grid-column: 14/21;
+  }
+}

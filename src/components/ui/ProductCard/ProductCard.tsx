@@ -38,21 +38,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
             <span className={s.priceDiscount}>${product.price}</span>
             <span className={s.priceRegular}>${product.fullPrice}</span>
           </div>
-          <Line />
-          <div className={s.specs}>
-            <div className={s.spec}>
-              <span className={s.specName}>Screen</span>
-              <span className={s.specValue}>{product.screen}</span>
-            </div>
-            <div className={s.spec}>
-              <span className={s.specName}>Capacity</span>
-              <span className={s.specValue}>{product.capacity}</span>
-            </div>
-            <div className={s.spec}>
-              <span className={s.specName}>RAM</span>
-              <span className={s.specValue}>{product.ram}</span>
-            </div>
-          </div>
+          <Line />c
           <div className={s.buttons}>
             <Button
               onClick={addToCartHandler}
