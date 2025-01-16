@@ -2,12 +2,12 @@ import { FC, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import cn from 'classnames';
 
-import { COLORS, Icons, Variants } from '../../constants';
-import { Color } from '../../types/Color';
-import { FullProduct } from '../../types/Phone';
-import Button from '../ui/Button';
-import { Icon } from '../ui/Icon';
-import { Line } from '../ui/Line';
+import { COLORS, Icons, Variants } from '../../../../constants';
+import { Color } from '../../../../types/Color';
+import { FullProduct } from '../../../../types/Phone';
+import Button from '../../../ui/Button';
+import { Icon } from '../../../ui/Icon';
+import { Line } from '../../../ui/Line';
 
 import s from './ProductVariants.module.scss';
 
