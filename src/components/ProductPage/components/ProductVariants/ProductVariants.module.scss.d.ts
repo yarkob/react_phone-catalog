@@ -1,8 +1,8 @@
 export declare const buttons: string;
-export declare const capacityTitle: string;
 export declare const container: string;
 export declare const favorite: string;
 export declare const filled: string;
+export declare const label: string;
 export declare const price: string;
 export declare const priceAndSpecs: string;
 export declare const priceDiscount: string;

@@ -48,19 +48,22 @@ export const ProductVariants: FC<Props> = ({ product }) => {
 
   return (
     <div className={s.container}>
-      <div className={s.select}>
-        {product.colorsAvailable.map((color: Color) => (
-          <Button
-            key={color}
-            variant={Variants.Color}
-            color={COLORS[color]}
-            onClick={handleColors(color)}
-          />
-        ))}
+      <div>
+        <p className={s.label}>Available colors</p>
+        <div className={s.select}>
+          {product.colorsAvailable.map((color: Color) => (
+            <Button
+              key={color}
+              variant={Variants.Color}
+              color={COLORS[color]}
+              onClick={handleColors(color)}
+            />
+          ))}
+        </div>
       </div>
       <Line />
       <div>
-        <p className={s.capacityTitle}>Select capacity</p>
+        <p className={s.label}>Select capacity</p>
         <div className={s.select}>
           {product.capacityAvailable.map(capacity => (
             <Button
