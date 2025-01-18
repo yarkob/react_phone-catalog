@@ -5,6 +5,7 @@ import cn from 'classnames';
 import { COLORS, Icons, Variants } from '../../../../constants';
 import { Color } from '../../../../types/Color';
 import { FullProduct } from '../../../../types/Phone';
+import { TechSpecs } from '../../../TechSpecs';
 import Button from '../../../ui/Button';
 import { Icon } from '../../../ui/Icon';
 import { Line } from '../../../ui/Line';
@@ -102,24 +103,15 @@ export const ProductVariants: FC<Props> = ({ product }) => {
             </Button>
           </div>
         </div>
-        <div className={s.specs}>
-          <div className={s.spec}>
-            <span className={s.specName}>Screen</span>
-            <span className={s.specValue}>{product.screen}</span>
-          </div>
-          <div className={s.spec}>
-            <span className={s.specName}>Resolution</span>
-            <span className={s.specValue}>{product.resolution}</span>
-          </div>
-          <div className={s.spec}>
-            <span className={s.specName}>Processor</span>
-            <span className={s.specValue}>{product.processor}</span>
-          </div>
-          <div className={s.spec}>
-            <span className={s.specName}>RAM</span>
-            <span className={s.specValue}>{product.ram}</span>
-          </div>
-        </div>
+        <TechSpecs
+          specs={{
+            screen: product.screen,
+            resolution: product.resolution,
+            processor: product.processor,
+            ram: product.ram,
+          }}
+          uppercaseSpecIdx={3}
+        />
       </div>
     </div>
   );

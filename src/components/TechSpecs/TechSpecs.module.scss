@@ -1,0 +1,23 @@
+@import '../../styles/typography';
+
+.specs {
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spec {
+  display: flex;
+  justify-content: space-between;
+}
+
+.specName {
+  @include typo-small;
+
+  color: var(--secondary-color);
+}
+
+.specValue {
+  @include typo-small;
+}
