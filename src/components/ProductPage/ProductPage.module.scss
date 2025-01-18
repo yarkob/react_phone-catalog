@@ -62,6 +62,11 @@
   @include on-tablet {
     grid-column: span 12;
     grid-row: 2;
+    margin-top: 64px;
+  }
+
+  @include on-desktop {
+    margin-top: 80px;
   }
 }
 
@@ -73,11 +78,13 @@
   @include on-tablet {
     grid-row: 3;
     grid-column: span 12;
+    margin-top: 64px;
   }
 
   @include on-desktop {
     grid-row: 2;
     grid-column: 14/25;
+    margin-top: 80px;
   }
 }
 
