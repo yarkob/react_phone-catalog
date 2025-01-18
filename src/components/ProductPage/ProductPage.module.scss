@@ -97,3 +97,21 @@
 .line {
   margin-bottom: 26px;
 }
+
+.productSlider {
+  margin: 56px 0;
+  grid-row: 5;
+  grid-column: span 4;
+
+  @include on-tablet {
+    margin: 64px 0;
+    grid-row: 4;
+    grid-column: span 12;
+  }
+
+  @include on-desktop {
+    margin: 80px 0;
+    grid-row: 3;
+    grid-column: span 24
+  }
+}

@@ -1,8 +1,10 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 
 import { Icons, Variants } from '../../constants';
+import { ProductsContext } from '../../context/ProductsContextProvider';
 import { FullProduct } from '../../types/Phone';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
+import { ProductSlider } from '../ProductSlider';
 import { TechSpecs } from '../TechSpecs';
 import Button from '../ui/Button';
 import { Icon } from '../ui/Icon';
@@ -18,6 +20,8 @@ interface Props {
 }
 
 export const ProductPage: FC<Props> = ({ product }) => {
+  const { products } = useContext(ProductsContext);
+
   if (!product) {
     return <h2>No product found :(</h2>;
   }
@@ -54,6 +58,12 @@ export const ProductPage: FC<Props> = ({ product }) => {
               zoom: product.zoom,
               cell: product.cell,
             }}
+          />
+        </div>
+        <div className={s.productSlider}>
+          <ProductSlider
+            products={products.slice(0, 8)}
+            title="You may also like"
           />
         </div>
       </div>
