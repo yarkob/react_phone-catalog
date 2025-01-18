@@ -75,6 +75,10 @@ export const ProductsProvider: FC<Props> = ({ children }) => {
       });
   }, []);
 
+  useEffect(() => {
+    setProducts([...phones, ...tablets, ...accessories]);
+  }, [phones, tablets, accessories]);
+
   useFetchProducts('api/phones.json', setFullPhones);
   useFetchProducts('api/tablets.json', setFullTablets);
   useFetchProducts('api/accessories.json', setFullAccessories);

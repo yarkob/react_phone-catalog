@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import { Icons, Variants } from '../../../constants';
 import { Product } from '../../../types';
+import { TechSpecs } from '../../TechSpecs';
 import Button from '../Button';
 import { Icon } from '../Icon';
 import { Line } from '../Line';
@@ -38,7 +39,15 @@ export const ProductCard: FC<Props> = ({ product }) => {
             <span className={s.priceDiscount}>${product.price}</span>
             <span className={s.priceRegular}>${product.fullPrice}</span>
           </div>
-          <Line />c
+          <Line />
+          <TechSpecs
+            specs={{
+              screen: product.screen,
+              capacity: product.capacity,
+              ram: product.ram,
+            }}
+            uppercaseSpecIdx={2}
+          />
           <div className={s.buttons}>
             <Button
               onClick={addToCartHandler}
