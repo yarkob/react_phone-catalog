@@ -1,4 +1,5 @@
 import { FC, useContext } from 'react';
+import { motion } from 'motion/react';
 
 import { Icons, Variants } from '../../constants';
 import { ProductsContext } from '../../context/ProductsContextProvider';
@@ -30,13 +31,34 @@ export const ProductPage: FC<Props> = ({ product }) => {
 
   return (
     <div>
-      <Breadcrumbs />
-      <Button className={s.backButton} variant={Variants.Back}>
-        <Icon iconId={Icons.ArrowLeft} />
-        Back
-      </Button>
-      <h2 className={s.name}>{name}</h2>
-      <div className={s.content}>
+      <motion.div
+        animate={{
+          x: [-100, 10, 0],
+          transition: { duration: 1, delay: 0.1 },
+        }}
+      >
+        <Breadcrumbs />
+      </motion.div>
+      <motion.div
+        animate={{
+          x: [-100, 10, 0],
+          transition: { duration: 1, delay: 0.2 },
+        }}
+      >
+        {' '}
+        <Button className={s.backButton} variant={Variants.Back}>
+          <Icon iconId={Icons.ArrowLeft} />
+          Back
+        </Button>
+        <h2 className={s.name}>{name}</h2>
+      </motion.div>
+      <motion.div
+        className={s.content}
+        animate={{
+          y: [100, -10, 0],
+          transition: { duration: 1, delay: 0.3 },
+        }}
+      >
         <ProductPageSlider images={product.images} className={s.slider} />
         <div className={s.variants}>
           <ProductVariants product={product} />
@@ -66,7 +88,7 @@ export const ProductPage: FC<Props> = ({ product }) => {
             title="You may also like"
           />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
