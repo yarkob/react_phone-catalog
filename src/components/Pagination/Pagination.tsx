@@ -1,5 +1,6 @@
 import { FC, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 import {
   Icons,
@@ -63,8 +64,16 @@ export const Pagination: FC<Props> = ({ products }) => {
   return (
     <div>
       <div className={s.catalog}>
-        {items.map(item => (
-          <ProductCard key={item.id} product={item} />
+        {items.map((item, idx) => (
+          <motion.div
+            key={item.id}
+            animate={{
+              y: [100, -10, 0],
+              transition: { duration: 1, delay: 0.1 * idx },
+            }}
+          >
+            <ProductCard product={item} />
+          </motion.div>
         ))}
       </div>
       <div className={s.buttons}>

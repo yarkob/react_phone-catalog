@@ -5,6 +5,17 @@
   flex-direction: column;
   gap: 4px;
   width: fit-content;
+
+  [class~='select__indicator'] svg {
+    transition: transform 0.3s ease;
+  }
+
+  [class~='select__control--menu-is-open'] {
+    [class~='select__indicator'] svg {
+      transform: rotate(180deg);
+      fill: var(--primary-color) !important;
+    }
+  }
 }
 
 .name {
