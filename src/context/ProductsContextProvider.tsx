@@ -27,6 +27,8 @@ interface IProductsContext {
   setAccessories: Dispatch<SetStateAction<Product[]>>;
   fullAccessories: FullProduct[];
   setFullAccessories: Dispatch<SetStateAction<FullProduct[]>>;
+  favorites: Product[];
+  setFavorites: Dispatch<SetStateAction<Product[]>>;
 }
 
 interface Props {
@@ -48,6 +50,8 @@ export const ProductsContext = createContext<IProductsContext>({
   setAccessories: noop,
   fullAccessories: [],
   setFullAccessories: noop,
+  favorites: [],
+  setFavorites: noop,
 });
 
 export const ProductsProvider: FC<Props> = ({ children }) => {
@@ -58,6 +62,7 @@ export const ProductsProvider: FC<Props> = ({ children }) => {
   const [fullTablets, setFullTablets] = useState<FullProduct[]>([]);
   const [accessories, setAccessories] = useState<Product[]>([]);
   const [fullAccessories, setFullAccessories] = useState<FullProduct[]>([]);
+  const [favorites, setFavorites] = useState<Product[]>([]);
 
   useEffect(() => {
     fetch('api/products.json')
@@ -100,6 +105,8 @@ export const ProductsProvider: FC<Props> = ({ children }) => {
         setAccessories,
         fullAccessories,
         setFullAccessories,
+        favorites,
+        setFavorites,
       }}
     >
       {children}

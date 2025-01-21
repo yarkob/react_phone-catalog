@@ -1,8 +1,9 @@
-import { FC, useState } from 'react';
+import React, { FC, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
 import { Icons, Variants } from '../../../constants';
+import { ProductsContext } from '../../../context/ProductsContextProvider';
 import { Product } from '../../../types';
 import { TechSpecs } from '../../TechSpecs';
 import Button from '../Button';
@@ -18,13 +19,16 @@ interface Props {
 export const ProductCard: FC<Props> = ({ product }) => {
   const [isSelected, setIsSelected] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+  const { favorites, setFavorites } = useContext(ProductsContext);
 
   const addToCartHandler = () => {
     setIsSelected(prevState => !prevState);
   };
 
-  const favoriteHandler = () => {
+  const favoriteHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     setIsFavorite(prevState => !prevState);
+    setFavorites([...favorites, product]);
   };
 
   return (
@@ -56,17 +60,20 @@ export const ProductCard: FC<Props> = ({ product }) => {
             >
               {isSelected ? 'Added' : 'Add to cart'}
             </Button>
-            <Button className={s.favorite} variant={Variants.Favorites}>
+            <Button
+              className={s.favorite}
+              variant={Variants.Favorites}
+              onClick={favoriteHandler}
+            >
               {isFavorite ? (
                 <Icon
-                  onClick={favoriteHandler}
                   iconId={Icons.FavoritesFilled}
                   className={cn('', {
                     [s.filled]: isFavorite,
                   })}
                 />
               ) : (
-                <Icon iconId={Icons.Favorites} onClick={favoriteHandler} />
+                <Icon iconId={Icons.Favorites} />
               )}
             </Button>
           </div>

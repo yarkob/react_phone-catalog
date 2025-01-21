@@ -11,7 +11,7 @@ interface Props {
   variant: Variants;
   isDisabled?: boolean;
   isSelected?: boolean;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   className?: string;
 }
 
