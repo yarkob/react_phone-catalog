@@ -45,7 +45,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
         ),
       );
     } else {
-      setFavorites([...favoritesData, product]);
+      setFavorites(prevState => [...prevState, product]);
       setFavoritesData(JSON.stringify([...favoritesData, product]));
     }
   };

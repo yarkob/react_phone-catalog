@@ -7,6 +7,8 @@ import React, {
   useState,
 } from 'react';
 
+import { LocalStorage } from '../constants';
+import { useLocalStorage } from '../hooks';
 import { useFetchProducts } from '../hooks/useFetchProducts';
 import { Product } from '../types';
 import { FullProduct } from '../types/Phone';
@@ -55,6 +57,8 @@ export const ProductsContext = createContext<IProductsContext>({
 });
 
 export const ProductsProvider: FC<Props> = ({ children }) => {
+  const [favoritesData] = useLocalStorage<Product[]>(LocalStorage.Favorites);
+
   const [products, setProducts] = useState<Product[]>([]);
   const [phones, setPhones] = useState<Product[]>([]);
   const [fullPhones, setFullPhones] = useState<FullProduct[]>([]);
@@ -62,7 +66,7 @@ export const ProductsProvider: FC<Props> = ({ children }) => {
   const [fullTablets, setFullTablets] = useState<FullProduct[]>([]);
   const [accessories, setAccessories] = useState<Product[]>([]);
   const [fullAccessories, setFullAccessories] = useState<FullProduct[]>([]);
-  const [favorites, setFavorites] = useState<Product[]>([]);
+  const [favorites, setFavorites] = useState<Product[]>(() => favoritesData);
 
   useEffect(() => {
     fetch('api/products.json')
