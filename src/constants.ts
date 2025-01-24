@@ -184,3 +184,8 @@ export const COLORS = {
   spaceblack: '#575350',
   coral: '#FF6E5C',
 };
+
+export enum LocalStorage {
+  Favorites = 'favorites',
+  Cart = 'cart',
+}

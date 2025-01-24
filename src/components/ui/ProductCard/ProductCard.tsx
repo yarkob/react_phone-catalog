@@ -2,8 +2,9 @@ import React, { FC, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
-import { Icons, Variants } from '../../../constants';
+import { Icons, LocalStorage, Variants } from '../../../constants';
 import { ProductsContext } from '../../../context/ProductsContextProvider';
+import { useLocalStorage } from '../../../hooks';
 import { Product } from '../../../types';
 import { TechSpecs } from '../../TechSpecs';
 import Button from '../Button';
@@ -18,8 +19,14 @@ interface Props {
 
 export const ProductCard: FC<Props> = ({ product }) => {
   const [isSelected, setIsSelected] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
-  const { favorites, setFavorites } = useContext(ProductsContext);
+  const { setFavorites } = useContext(ProductsContext);
+  const [favoritesData, setFavoritesData] = useLocalStorage<Product[]>(
+    LocalStorage.Favorites,
+  );
+
+  const isFavorite = favoritesData
+    .map(favorite => favorite.id)
+    .includes(product.id);
 
   const addToCartHandler = () => {
     setIsSelected(prevState => !prevState);
@@ -27,8 +34,20 @@ export const ProductCard: FC<Props> = ({ product }) => {
 
   const favoriteHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    setIsFavorite(prevState => !prevState);
-    setFavorites([...favorites, product]);
+
+    if (isFavorite) {
+      setFavorites(prevState =>
+        prevState.filter(favorite => favorite.id !== product.id),
+      );
+      setFavoritesData(
+        JSON.stringify(
+          favoritesData.filter(favorite => favorite.id !== product.id),
+        ),
+      );
+    } else {
+      setFavorites([...favoritesData, product]);
+      setFavoritesData(JSON.stringify([...favoritesData, product]));
+    }
   };
 
   return (
