@@ -61,7 +61,7 @@ export const ProductPage: FC<Props> = ({ product }) => {
       >
         <ProductPageSlider images={product.images} className={s.slider} />
         <div className={s.variants}>
-          <ProductVariants product={product} />
+          <ProductVariants fullProduct={product} />
         </div>
         <div className={s.about}>
           <ProductAbout descriptions={product.description} />

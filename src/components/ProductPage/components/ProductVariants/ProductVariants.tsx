@@ -1,32 +1,33 @@
-import { FC, useState } from 'react';
+import { FC, useContext, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import cn from 'classnames';
 
-import { COLORS, Icons, Variants } from '../../../../constants';
+import { COLORS, Variants } from '../../../../constants';
+import { ProductsContext } from '../../../../context/ProductsContextProvider';
 import { Color } from '../../../../types/Color';
 import { FullProduct } from '../../../../types/Phone';
+import { FavoritesButton } from '../../../FavoritesButton';
 import { TechSpecs } from '../../../TechSpecs';
 import Button from '../../../ui/Button';
-import { Icon } from '../../../ui/Icon';
 import { Line } from '../../../ui/Line';
 
 import s from './ProductVariants.module.scss';
 
 interface Props {
-  product: FullProduct;
+  fullProduct: FullProduct;
 }
 
-export const ProductVariants: FC<Props> = ({ product }) => {
+export const ProductVariants: FC<Props> = ({ fullProduct }) => {
   const { productId } = useParams();
   const productIdArr = productId?.split('-') || [];
   const navigate = useNavigate();
+  const { products } = useContext(ProductsContext);
 
   const changeProduct = (propToChange: string, excludeIdx: number) => {
     const changedProduct = productIdArr
       .toSpliced(excludeIdx, 1, propToChange.toLowerCase())
       .join('-');
 
-    navigate(`/${product.category}/${changedProduct}`);
+    navigate(`/${fullProduct.category}/${changedProduct}`);
   };
 
   const handleColors = (color: string) => () =>
@@ -36,14 +37,9 @@ export const ProductVariants: FC<Props> = ({ product }) => {
     changeProduct(capacity, productIdArr.length - 2);
 
   const [isSelected, setIsSelected] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
 
   const addToCartHandler = () => {
     setIsSelected(prevState => !prevState);
-  };
-
-  const favoriteHandler = () => {
-    setIsFavorite(prevState => !prevState);
   };
 
   return (
@@ -51,7 +47,7 @@ export const ProductVariants: FC<Props> = ({ product }) => {
       <div>
         <p className={s.label}>Available colors</p>
         <div className={s.select}>
-          {product.colorsAvailable.map((color: Color) => (
+          {fullProduct.colorsAvailable.map((color: Color) => (
             <Button
               key={color}
               variant={Variants.Color}
@@ -65,7 +61,7 @@ export const ProductVariants: FC<Props> = ({ product }) => {
       <div>
         <p className={s.label}>Select capacity</p>
         <div className={s.select}>
-          {product.capacityAvailable.map(capacity => (
+          {fullProduct.capacityAvailable.map(capacity => (
             <Button
               key={capacity}
               variant={Variants.Basic}
@@ -80,8 +76,10 @@ export const ProductVariants: FC<Props> = ({ product }) => {
       <div className={s.priceAndSpecs}>
         <div>
           <div className={s.price}>
-            <span className={s.priceDiscount}>${product.priceDiscount}</span>
-            <span className={s.priceRegular}>${product.priceRegular}</span>
+            <span className={s.priceDiscount}>
+              ${fullProduct.priceDiscount}
+            </span>
+            <span className={s.priceRegular}>${fullProduct.priceRegular}</span>
           </div>
           <div className={s.buttons}>
             <Button
@@ -91,27 +89,19 @@ export const ProductVariants: FC<Props> = ({ product }) => {
             >
               {isSelected ? 'Added' : 'Add to cart'}
             </Button>
-            <Button className={s.favorite} variant={Variants.Favorites}>
-              {isFavorite ? (
-                <Icon
-                  onClick={favoriteHandler}
-                  iconId={Icons.FavoritesFilled}
-                  className={cn('', {
-                    [s.filled]: isFavorite,
-                  })}
-                />
-              ) : (
-                <Icon iconId={Icons.Favorites} onClick={favoriteHandler} />
+            <FavoritesButton
+              product={products.find(
+                product => product.itemId === fullProduct.id,
               )}
-            </Button>
+            />
           </div>
         </div>
         <TechSpecs
           specs={{
-            screen: product.screen,
-            resolution: product.resolution,
-            processor: product.processor,
-            ram: product.ram,
+            screen: fullProduct.screen,
+            resolution: fullProduct.resolution,
+            processor: fullProduct.processor,
+            ram: fullProduct.ram,
           }}
           uppercaseSpecIdx={3}
         />

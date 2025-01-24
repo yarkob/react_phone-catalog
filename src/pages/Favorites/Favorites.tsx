@@ -1,3 +1,14 @@
+import { useContext } from 'react';
+
+import { Catalog } from '../../components/Catalog';
+import { ProductsContext } from '../../context/ProductsContextProvider';
+
 export const Favorites = () => {
-  return <div>Favorites</div>;
+  const { favorites } = useContext(ProductsContext);
+
+  return (
+    <div>
+      <Catalog title="Favorites" products={favorites} showSorts={false} />
+    </div>
+  );
 };

@@ -1,12 +1,11 @@
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import cn from 'classnames';
 
-import { Icons, Variants } from '../../../constants';
+import { Variants } from '../../../constants';
 import { Product } from '../../../types';
+import { FavoritesButton } from '../../FavoritesButton';
 import { TechSpecs } from '../../TechSpecs';
 import Button from '../Button';
-import { Icon } from '../Icon';
 import { Line } from '../Line';
 
 import s from './ProductCard.module.scss';
@@ -17,14 +16,9 @@ interface Props {
 
 export const ProductCard: FC<Props> = ({ product }) => {
   const [isSelected, setIsSelected] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
 
   const addToCartHandler = () => {
-    setIsSelected(prevState => !prevState);
-  };
-
-  const favoriteHandler = () => {
-    setIsFavorite(prevState => !prevState);
+    setIsSelected(!isSelected);
   };
 
   return (
@@ -56,19 +50,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
             >
               {isSelected ? 'Added' : 'Add to cart'}
             </Button>
-            <Button className={s.favorite} variant={Variants.Favorites}>
-              {isFavorite ? (
-                <Icon
-                  onClick={favoriteHandler}
-                  iconId={Icons.FavoritesFilled}
-                  className={cn('', {
-                    [s.filled]: isFavorite,
-                  })}
-                />
-              ) : (
-                <Icon iconId={Icons.Favorites} onClick={favoriteHandler} />
-              )}
-            </Button>
+            <FavoritesButton product={product} />
           </div>
         </div>
       </div>

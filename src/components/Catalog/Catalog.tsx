@@ -12,9 +12,10 @@ import s from './Catalog.module.scss';
 interface Props {
   title: string;
   products: Product[];
+  showSorts?: boolean;
 }
 
-export const Catalog: FC<Props> = ({ title, products }) => {
+export const Catalog: FC<Props> = ({ title, products, showSorts = true }) => {
   const [searchParams] = useSearchParams();
   const sortParam = searchParams.get(SearchFields.Sort) || SortBy.Newest;
   const sortOption = SORT_OPTIONS.find(option => option.value === sortParam);
@@ -46,7 +47,7 @@ export const Catalog: FC<Props> = ({ title, products }) => {
         <h1 className={s.title}>{title}</h1>
         <p className={s.numberOfModels}>{products.length} models</p>
       </div>
-      <Sorts />
+      {showSorts ? <Sorts /> : ''}
       <Pagination products={sortedProducts} />
     </div>
   );

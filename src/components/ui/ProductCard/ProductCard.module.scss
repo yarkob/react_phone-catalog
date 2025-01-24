@@ -84,12 +84,5 @@
 .buttons {
   display: flex;
   gap: 8px;
-}
-
-.favorite {
-  aspect-ratio: 1 / 1;
-}
-
-.filled {
-  fill: #EB5757;
+  z-index: 1000;
 }

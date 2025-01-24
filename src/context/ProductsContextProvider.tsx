@@ -7,6 +7,8 @@ import React, {
   useState,
 } from 'react';
 
+import { LocalStorage } from '../constants';
+import { useLocalStorage } from '../hooks';
 import { useFetchProducts } from '../hooks/useFetchProducts';
 import { Product } from '../types';
 import { FullProduct } from '../types/Phone';
@@ -27,6 +29,8 @@ interface IProductsContext {
   setAccessories: Dispatch<SetStateAction<Product[]>>;
   fullAccessories: FullProduct[];
   setFullAccessories: Dispatch<SetStateAction<FullProduct[]>>;
+  favorites: Product[];
+  setFavorites: Dispatch<SetStateAction<Product[]>>;
 }
 
 interface Props {
@@ -48,9 +52,13 @@ export const ProductsContext = createContext<IProductsContext>({
   setAccessories: noop,
   fullAccessories: [],
   setFullAccessories: noop,
+  favorites: [],
+  setFavorites: noop,
 });
 
 export const ProductsProvider: FC<Props> = ({ children }) => {
+  const [favoritesData] = useLocalStorage<Product[]>(LocalStorage.Favorites);
+
   const [products, setProducts] = useState<Product[]>([]);
   const [phones, setPhones] = useState<Product[]>([]);
   const [fullPhones, setFullPhones] = useState<FullProduct[]>([]);
@@ -58,6 +66,7 @@ export const ProductsProvider: FC<Props> = ({ children }) => {
   const [fullTablets, setFullTablets] = useState<FullProduct[]>([]);
   const [accessories, setAccessories] = useState<Product[]>([]);
   const [fullAccessories, setFullAccessories] = useState<FullProduct[]>([]);
+  const [favorites, setFavorites] = useState<Product[]>(() => favoritesData);
 
   useEffect(() => {
     fetch('api/products.json')
@@ -100,6 +109,8 @@ export const ProductsProvider: FC<Props> = ({ children }) => {
         setAccessories,
         fullAccessories,
         setFullAccessories,
+        favorites,
+        setFavorites,
       }}
     >
       {children}
