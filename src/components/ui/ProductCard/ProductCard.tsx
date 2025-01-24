@@ -1,14 +1,11 @@
-import React, { FC, useContext, useState } from 'react';
+import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import cn from 'classnames';
 
-import { Icons, LocalStorage, Variants } from '../../../constants';
-import { ProductsContext } from '../../../context/ProductsContextProvider';
-import { useLocalStorage } from '../../../hooks';
+import { Variants } from '../../../constants';
 import { Product } from '../../../types';
+import { FavoritesButton } from '../../FavoritesButton';
 import { TechSpecs } from '../../TechSpecs';
 import Button from '../Button';
-import { Icon } from '../Icon';
 import { Line } from '../Line';
 
 import s from './ProductCard.module.scss';
@@ -19,35 +16,9 @@ interface Props {
 
 export const ProductCard: FC<Props> = ({ product }) => {
   const [isSelected, setIsSelected] = useState(false);
-  const { setFavorites } = useContext(ProductsContext);
-  const [favoritesData, setFavoritesData] = useLocalStorage<Product[]>(
-    LocalStorage.Favorites,
-  );
-
-  const isFavorite = favoritesData
-    .map(favorite => favorite.id)
-    .includes(product.id);
 
   const addToCartHandler = () => {
-    setIsSelected(prevState => !prevState);
-  };
-
-  const favoriteHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-
-    if (isFavorite) {
-      setFavorites(prevState =>
-        prevState.filter(favorite => favorite.id !== product.id),
-      );
-      setFavoritesData(
-        JSON.stringify(
-          favoritesData.filter(favorite => favorite.id !== product.id),
-        ),
-      );
-    } else {
-      setFavorites(prevState => [...prevState, product]);
-      setFavoritesData(JSON.stringify([...favoritesData, product]));
-    }
+    setIsSelected(!isSelected);
   };
 
   return (
@@ -79,22 +50,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
             >
               {isSelected ? 'Added' : 'Add to cart'}
             </Button>
-            <Button
-              className={s.favorite}
-              variant={Variants.Favorites}
-              onClick={favoriteHandler}
-            >
-              {isFavorite ? (
-                <Icon
-                  iconId={Icons.FavoritesFilled}
-                  className={cn('', {
-                    [s.filled]: isFavorite,
-                  })}
-                />
-              ) : (
-                <Icon iconId={Icons.Favorites} />
-              )}
-            </Button>
+            <FavoritesButton product={product} />
           </div>
         </div>
       </div>

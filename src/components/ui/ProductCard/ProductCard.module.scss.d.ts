@@ -1,8 +1,6 @@
 export declare const buttons: string;
 export declare const container: string;
 export declare const content: string;
-export declare const favorite: string;
-export declare const filled: string;
 export declare const image: string;
 export declare const link: string;
 export declare const name: string;
