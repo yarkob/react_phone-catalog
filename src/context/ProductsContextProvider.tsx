@@ -31,6 +31,8 @@ interface IProductsContext {
   setFullAccessories: Dispatch<SetStateAction<FullProduct[]>>;
   favorites: Product[];
   setFavorites: Dispatch<SetStateAction<Product[]>>;
+  cart: Product[];
+  setCart: Dispatch<SetStateAction<Product[]>>;
 }
 
 interface Props {
@@ -54,10 +56,13 @@ export const ProductsContext = createContext<IProductsContext>({
   setFullAccessories: noop,
   favorites: [],
   setFavorites: noop,
+  cart: [],
+  setCart: noop,
 });
 
 export const ProductsProvider: FC<Props> = ({ children }) => {
   const [favoritesData] = useLocalStorage<Product[]>(LocalStorage.Favorites);
+  const [cartData] = useLocalStorage<Product[]>(LocalStorage.Cart);
 
   const [products, setProducts] = useState<Product[]>([]);
   const [phones, setPhones] = useState<Product[]>([]);
@@ -67,6 +72,7 @@ export const ProductsProvider: FC<Props> = ({ children }) => {
   const [accessories, setAccessories] = useState<Product[]>([]);
   const [fullAccessories, setFullAccessories] = useState<FullProduct[]>([]);
   const [favorites, setFavorites] = useState<Product[]>(() => favoritesData);
+  const [cart, setCart] = useState<Product[]>(() => cartData);
 
   useEffect(() => {
     fetch('api/products.json')
@@ -111,6 +117,8 @@ export const ProductsProvider: FC<Props> = ({ children }) => {
         setFullAccessories,
         favorites,
         setFavorites,
+        cart,
+        setCart,
       }}
     >
       {children}
