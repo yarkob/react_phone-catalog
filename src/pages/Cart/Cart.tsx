@@ -8,13 +8,15 @@ import { CartItem } from './components/CartItem';
 import s from './Cart.module.scss';
 
 export const Cart = () => {
-  const { products } = useContext(ProductsContext);
+  const { cart } = useContext(ProductsContext);
 
   return (
     <div>
       <Button variant={Variants.Back} />
       <h1 className={s.title}>Cart</h1>
-      <CartItem product={products[0]} />
+      {cart.map(item => (
+        <CartItem key={item.product.itemId} cartProduct={item} />
+      ))}
     </div>
   );
 };

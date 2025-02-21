@@ -1,11 +1,10 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Variants } from '../../../constants';
 import { Product } from '../../../types';
+import { AddToCartButton } from '../../AddToCartButton';
 import { FavoritesButton } from '../../FavoritesButton';
 import { TechSpecs } from '../../TechSpecs';
-import Button from '../Button';
 import { Line } from '../Line';
 
 import s from './ProductCard.module.scss';
@@ -15,12 +14,6 @@ interface Props {
 }
 
 export const ProductCard: FC<Props> = ({ product }) => {
-  const [isSelected, setIsSelected] = useState(false);
-
-  const addToCartHandler = () => {
-    setIsSelected(!isSelected);
-  };
-
   return (
     <Link to={`/${product.category}/${product.itemId}`} className={s.link}>
       <div className={s.container}>
@@ -43,13 +36,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
             uppercaseSpecIdx={2}
           />
           <div className={s.buttons}>
-            <Button
-              onClick={addToCartHandler}
-              isSelected={isSelected}
-              variant={Variants.Primary}
-            >
-              {isSelected ? 'Added' : 'Add to cart'}
-            </Button>
+            <AddToCartButton propProduct={product} />
             <FavoritesButton product={product} />
           </div>
         </div>
