@@ -1,5 +1,27 @@
 @import '../../styles/typography';
 
+.backButton {
+  margin: 40px 0 16px;
+}
+
 .title {
   @include typo-h1;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  column-gap: 16px;
+  align-items: start;
+}
+
+.items {
+  grid-column: span 16;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.checkout {
+  grid-column: span 8;
 }

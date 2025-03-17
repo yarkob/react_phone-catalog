@@ -1,0 +1,22 @@
+@import "./../../styles/typography";
+
+.container {
+  border: solid 1px var(--elements-color);
+  padding: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.price {
+  @include typo-h2;
+}
+
+.totalFor {
+  @include typo-body;
+
+  color: var(--secondary-color);
+}
+
+.line {
+  margin: 24px 0;
+}

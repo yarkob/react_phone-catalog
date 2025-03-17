@@ -8,8 +8,9 @@
   align-items: center;
 }
 
-.icon {
+.removeButton {
   fill: var(--icons-color);
+  margin-right: 8px;
 }
 
 .image {
@@ -25,4 +26,15 @@
 
 .price {
   @include typo-h3;
+}
+
+.amountContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 96px;
+}
+
+.amountText {
+  @include typo-body;
 }
