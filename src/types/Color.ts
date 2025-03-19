@@ -8,7 +8,7 @@ export type Color =
   | 'gold'
   | 'midnightgreen'
   | 'silver'
-  | 'spacegray'
+  | 'space gray'
   | 'rosegold'
   | 'midnight'
   | 'pink'

@@ -5,9 +5,11 @@ import { ProductPage } from '../../components/ProductPage';
 import { ProductsContext } from '../../context/ProductsContextProvider';
 
 export const AccessoryDetails = () => {
-  const { accessories } = useContext(ProductsContext);
+  const { fullAccessories } = useContext(ProductsContext);
   const { productId } = useParams();
-  const product = accessories.find(accessory => accessory.itemId === productId);
+  const product = fullAccessories.find(
+    fullAccessory => fullAccessory.id === productId,
+  );
 
   return (
     <div>
