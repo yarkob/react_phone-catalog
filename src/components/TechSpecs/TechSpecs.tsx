@@ -22,7 +22,7 @@ export const TechSpecs: FC<Props> = ({ specs, uppercaseSpecIdx }) => {
         }
 
         return (
-          <div key={name} className={s.spec}>
+          <div key={idx} className={s.spec}>
             <span className={s.specName}>
               {idx === uppercaseSpecIdx
                 ? spec[0].toUpperCase()

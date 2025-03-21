@@ -73,3 +73,7 @@
   display: block;
   margin: auto;
 }
+
+.controlSelected {
+  outline: 1px solid var(--primary-color);
+}

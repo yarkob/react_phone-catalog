@@ -28,7 +28,7 @@ export const ProductVariants: FC<Props> = ({ fullProduct }) => {
     }
 
     navigate(
-      `/${fullProduct.category}/${productId.replace(prevStat.replace(' ', '-'), newStat.replace(' ', '-'))}`,
+      `/${fullProduct.category}/${productId.replace(prevStat.toLowerCase().replace(' ', '-'), newStat.toLowerCase().replace(' ', '-'))}`,
     );
   };
 
@@ -49,6 +49,7 @@ export const ProductVariants: FC<Props> = ({ fullProduct }) => {
               variant={Variants.Color}
               color={COLORS[color]}
               onClick={handleChange(fullProduct.color, color)}
+              isSelected={productId?.includes(color)}
             />
           ))}
         </div>
@@ -62,6 +63,7 @@ export const ProductVariants: FC<Props> = ({ fullProduct }) => {
               key={capacity}
               variant={Variants.Basic}
               onClick={handleChange(fullProduct.capacity, capacity)}
+              isSelected={productId?.includes(capacity.toLowerCase())}
             >
               {capacity}
             </Button>

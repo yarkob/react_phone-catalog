@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react';
+import { FC, useRef, useState } from 'react';
 import cn from 'classnames';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 
@@ -10,6 +10,7 @@ interface Props {
 }
 
 export const ProductPageSlider: FC<Props> = ({ images, className = '' }) => {
+  const [currentImage, setCurrentImage] = useState<string>('');
   const swiperRef = useRef<SwiperClass>();
 
   const handleSlideTo = (idx: number) => () => {
@@ -28,7 +29,13 @@ export const ProductPageSlider: FC<Props> = ({ images, className = '' }) => {
     >
       <div className={s.controls}>
         {images.map((image, idx) => (
-          <div key={image} className={s.control} onClick={handleSlideTo(idx)}>
+          <div
+            key={image}
+            className={cn(s.control, {
+              [s.controlSelected]: image === currentImage,
+            })}
+            onClick={handleSlideTo(idx)}
+          >
             <img alt="Product image" src={image} className={s.controlImg} />
           </div>
         ))}
@@ -37,6 +44,7 @@ export const ProductPageSlider: FC<Props> = ({ images, className = '' }) => {
         <Swiper
           onSwiper={swiper => {
             swiperRef.current = swiper;
+            setCurrentImage(images[swiper.realIndex]);
           }}
         >
           {images.map(image => (
