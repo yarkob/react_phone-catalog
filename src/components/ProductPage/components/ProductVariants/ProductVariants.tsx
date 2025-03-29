@@ -1,10 +1,11 @@
-import { FC, useContext, useState } from 'react';
+import { FC, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { COLORS, Variants } from '../../../../constants';
 import { ProductsContext } from '../../../../context/ProductsContextProvider';
 import { Color } from '../../../../types/Color';
 import { FullProduct } from '../../../../types/Phone';
+import { AddToCartButton } from '../../../AddToCartButton';
 import { FavoritesButton } from '../../../FavoritesButton';
 import { TechSpecs } from '../../../TechSpecs';
 import Button from '../../../ui/Button';
@@ -35,12 +36,6 @@ export const ProductVariants: FC<Props> = ({ fullProduct }) => {
 
   const handleCapacity = (capacity: string) => () =>
     changeProduct(capacity, productIdArr.length - 2);
-
-  const [isSelected, setIsSelected] = useState(false);
-
-  const addToCartHandler = () => {
-    setIsSelected(prevState => !prevState);
-  };
 
   return (
     <div className={s.container}>
@@ -82,13 +77,11 @@ export const ProductVariants: FC<Props> = ({ fullProduct }) => {
             <span className={s.priceRegular}>${fullProduct.priceRegular}</span>
           </div>
           <div className={s.buttons}>
-            <Button
-              onClick={addToCartHandler}
-              isSelected={isSelected}
-              variant={Variants.Primary}
-            >
-              {isSelected ? 'Added' : 'Add to cart'}
-            </Button>
+            <AddToCartButton
+              product={products.find(
+                product => product.itemId === fullProduct.id,
+              )}
+            />
             <FavoritesButton
               product={products.find(
                 product => product.itemId === fullProduct.id,
