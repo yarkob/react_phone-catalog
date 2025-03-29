@@ -60,6 +60,10 @@ export const Pagination: FC<Props> = ({ products }) => {
   const items = products.slice(begin, end);
   const isFirstPage = page === 1;
   const isLastPage = pages.length === page;
+  const animation = (idx: number) => ({
+    y: [100, -10, 0],
+    transition: { duration: 1, delay: 0.1 * idx },
+  });
 
   return (
     <div>
@@ -67,10 +71,7 @@ export const Pagination: FC<Props> = ({ products }) => {
         {items.map((item, idx) => (
           <motion.div
             key={item.id}
-            animate={{
-              y: [100, -10, 0],
-              transition: { duration: 1, delay: 0.1 * idx },
-            }}
+            animate={searchParams.size ? {} : animation(idx)}
           >
             <ProductCard product={item} />
           </motion.div>

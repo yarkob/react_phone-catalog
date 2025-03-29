@@ -19,23 +19,18 @@ interface Props {
 
 export const ProductVariants: FC<Props> = ({ fullProduct }) => {
   const { productId } = useParams();
-  const productIdArr = productId?.split('-') || [];
   const navigate = useNavigate();
   const { products } = useContext(ProductsContext);
 
-  const changeProduct = (propToChange: string, excludeIdx: number) => {
-    const changedProduct = productIdArr
-      .toSpliced(excludeIdx, 1, propToChange.toLowerCase())
-      .join('-');
+  const handleChange = (prevStat: string, newStat: string) => () => {
+    if (!productId) {
+      return;
+    }
 
-    navigate(`/${fullProduct.category}/${changedProduct}`);
+    navigate(
+      `/${fullProduct.category}/${productId.replace(prevStat.toLowerCase().replace(' ', '-'), newStat.toLowerCase().replace(' ', '-'))}`,
+    );
   };
-
-  const handleColors = (color: string) => () =>
-    changeProduct(color, productIdArr.length - 1);
-
-  const handleCapacity = (capacity: string) => () =>
-    changeProduct(capacity, productIdArr.length - 2);
 
   return (
     <div className={s.container}>
@@ -47,7 +42,8 @@ export const ProductVariants: FC<Props> = ({ fullProduct }) => {
               key={color}
               variant={Variants.Color}
               color={COLORS[color]}
-              onClick={handleColors(color)}
+              onClick={handleChange(fullProduct.color, color)}
+              isSelected={productId?.includes(color)}
             />
           ))}
         </div>
@@ -60,7 +56,8 @@ export const ProductVariants: FC<Props> = ({ fullProduct }) => {
             <Button
               key={capacity}
               variant={Variants.Basic}
-              onClick={handleCapacity(capacity)}
+              onClick={handleChange(fullProduct.capacity, capacity)}
+              isSelected={productId?.includes(capacity.toLowerCase())}
             >
               {capacity}
             </Button>

@@ -3,6 +3,7 @@ export declare const basic: string;
 export declare const basicSelected: string;
 export declare const button: string;
 export declare const color: string;
+export declare const colorSelected: string;
 export declare const favorites: string;
 export declare const innerCircle: string;
 export declare const pagination: string;

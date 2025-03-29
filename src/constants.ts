@@ -175,7 +175,7 @@ export const COLORS = {
   gold: '#FDDBC0',
   midnightgreen: '#646E66',
   silver: '#F3F1ED',
-  spacegray: '#676664',
+  'space gray': '#676664',
   rosegold: '#F4CAC4',
   midnight: '#1B232C',
   pink: '#FEE4DF',
@@ -183,6 +183,7 @@ export const COLORS = {
   sierrablue: 'A0B9D4',
   spaceblack: '#575350',
   coral: '#FF6E5C',
+  blue: '#4b5b7f',
 };
 
 export enum LocalStorage {

@@ -7,20 +7,20 @@ import { CartProduct, Product } from '../../types';
 import Button from '../ui/Button';
 
 interface Props {
-  propProduct: Product | undefined;
+  product: Product | undefined;
 }
 
-export const AddToCartButton: FC<Props> = ({ propProduct }) => {
+export const AddToCartButton: FC<Props> = ({ product }) => {
   const { cart, setCart } = useContext(ProductsContext);
   const [cartData, setCartData] = useLocalStorage<CartProduct[]>(
     LocalStorage.Cart,
   );
 
-  const isSelected = propProduct
-    ? cartData.map(item => item.product.id).includes(propProduct.id)
+  const isSelected = product
+    ? cartData.map(item => item.product.id).includes(product.id)
     : false;
 
-  if (!propProduct) {
+  if (!product) {
     return <h2>Oops</h2>;
   }
 
@@ -29,15 +29,15 @@ export const AddToCartButton: FC<Props> = ({ propProduct }) => {
 
     if (isSelected) {
       setCart(prevState =>
-        prevState.filter(item => item.product.id !== propProduct.id),
+        prevState.filter(item => item.product.id !== product.id),
       );
       setCartData(
-        JSON.stringify(cart.filter(item => item.product.id !== propProduct.id)),
+        JSON.stringify(cart.filter(item => item.product.id !== product.id)),
       );
     } else {
-      setCart(prevState => [...prevState, { product: propProduct, amount: 1 }]);
+      setCart(prevState => [...prevState, { product: product, amount: 1 }]);
       setCartData(
-        JSON.stringify([...cartData, { product: propProduct, amount: 1 }]),
+        JSON.stringify([...cartData, { product: product, amount: 1 }]),
       );
     }
   };
