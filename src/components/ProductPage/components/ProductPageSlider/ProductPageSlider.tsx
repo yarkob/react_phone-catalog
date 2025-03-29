@@ -48,7 +48,7 @@ export const ProductPageSlider: FC<Props> = ({ images, className = '' }) => {
         }}
       >
         {images.map(image => (
-          <SwiperSlide key={image} style={{ width: '100%' }}>
+          <SwiperSlide key={image} className={s.swiperSlide}>
             <img alt="Current product image" src={image} className={s.image} />
           </SwiperSlide>
         ))}
