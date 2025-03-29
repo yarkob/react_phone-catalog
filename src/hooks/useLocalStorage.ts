@@ -1,23 +1,23 @@
-export const useLocalStorage = <D>(
-  key: string,
-): [D, (value: string) => void, () => void] => {
-  const data = localStorage.getItem(key);
+import { useEffect, useState } from 'react';
 
-  if (!data) {
-    localStorage.setItem(key, '[]');
-  }
+export const useLocalStorage = <T>(key: string, initialValue: T) => {
+  const [value, setValue] = useState<T>(() => {
+    const item = window.localStorage.getItem(key);
 
-  const setLocalStorage = (value: string) => {
-    localStorage.setItem(key, value);
-  };
+    if (!item) {
+      return initialValue;
+    }
 
-  const removeLocalStorage = () => {
-    localStorage.removeItem(key);
-  };
+    try {
+      return JSON.parse(item);
+    } catch {
+      return initialValue;
+    }
+  });
 
-  return [
-    JSON.parse(localStorage.getItem(key) || '[]'),
-    setLocalStorage,
-    removeLocalStorage,
-  ];
+  useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
+
+  return [value, setValue] as const;
 };

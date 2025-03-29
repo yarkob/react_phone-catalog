@@ -5,9 +5,9 @@ import { ProductPage } from '../../components/ProductPage';
 import { ProductsContext } from '../../context/ProductsContextProvider';
 
 export const TabletDetails = () => {
-  const { tablets } = useContext(ProductsContext);
+  const { fullTablets } = useContext(ProductsContext);
   const { productId } = useParams();
-  const product = tablets.find(tablet => tablet.itemId === productId);
+  const product = fullTablets.find(fullTablet => fullTablet.id === productId);
 
   return (
     <div>

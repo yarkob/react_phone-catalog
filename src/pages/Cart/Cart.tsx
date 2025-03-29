@@ -3,25 +3,20 @@ import { useContext } from 'react';
 import { Checkout } from '../../components/Checkout';
 import Button from '../../components/ui/Button';
 import { Icon } from '../../components/ui/Icon';
-import { Icons, LocalStorage, Variants } from '../../constants';
+import { Icons, Variants } from '../../constants';
 import { ProductsContext } from '../../context/ProductsContextProvider';
-import { useLocalStorage } from '../../hooks';
 import { CartProduct } from '../../types';
 import { CartItem } from './components/CartItem';
 
 import s from './Cart.module.scss';
 
 export const Cart = () => {
-  const { cart, setCart } = useContext(ProductsContext);
-  const [, setCartData] = useLocalStorage<CartProduct[]>(LocalStorage.Cart);
+  const { cartData, setCartData } = useContext(ProductsContext);
 
   const removeItemHandler = (item: CartProduct) => () => {
-    setCart(
-      cart.filter(cartItem => cartItem.product.itemId !== item.product.itemId),
-    );
     setCartData(
-      JSON.stringify(
-        cart.filter(cartItem => cartItem.product.id !== item.product.id),
+      cartData.filter(
+        cartItem => cartItem.product.itemId !== item.product.itemId,
       ),
     );
   };
@@ -35,7 +30,7 @@ export const Cart = () => {
       <h1 className={s.title}>Cart</h1>
       <div className={s.content}>
         <div className={s.items}>
-          {cart.map(item => (
+          {cartData.map(item => (
             <CartItem
               key={item.product.itemId}
               cartProduct={item}
@@ -43,7 +38,9 @@ export const Cart = () => {
             />
           ))}
         </div>
-        {!!cart.length && <Checkout className={s.checkout} cart={cart} />}
+        {!!cartData.length && (
+          <Checkout className={s.checkout} cart={cartData} />
+        )}
       </div>
     </div>
   );

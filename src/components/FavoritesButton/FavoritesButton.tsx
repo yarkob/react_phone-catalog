@@ -1,44 +1,38 @@
 import React, { FC, useContext } from 'react';
 import cn from 'classnames';
 
-import { Icons, LocalStorage, Variants } from '../../constants';
+import { Icons, Variants } from '../../constants';
 import { ProductsContext } from '../../context/ProductsContextProvider';
-import { useLocalStorage } from '../../hooks';
-import { Product } from '../../types';
 import Button from '../ui/Button';
 import { Icon } from '../ui/Icon';
 
 import s from './FavoritesButton.module.scss';
 
 interface Props {
-  product: Product;
+  productId: string;
 }
 
-export const FavoritesButton: FC<Props> = ({ product }) => {
-  const { setFavorites } = useContext(ProductsContext);
-  const [favoritesData, setFavoritesData] = useLocalStorage<Product[]>(
-    LocalStorage.Favorites,
-  );
+export const FavoritesButton: FC<Props> = ({ productId }) => {
+  const { favoritesData, setFavoritesData, products } =
+    useContext(ProductsContext);
 
-  const isFavorite = favoritesData
-    .map(favorite => favorite.id)
-    .includes(product.id);
+  const isFavorite = favoritesData.some(item => item.itemId === productId);
 
   const favoriteHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     if (isFavorite) {
-      setFavorites(prevState =>
-        prevState.filter(favorite => favorite.id !== product.id),
-      );
-      setFavoritesData(
-        JSON.stringify(
-          favoritesData.filter(favorite => favorite.id !== product.id),
-        ),
+      setFavoritesData(prevState =>
+        prevState.filter(favorite => favorite.itemId !== productId),
       );
     } else {
-      setFavorites(prevState => [...prevState, product]);
-      setFavoritesData(JSON.stringify([...favoritesData, product]));
+      const product = products.find(p => p.itemId === productId);
+
+      if (!product) {
+        return;
+      }
+
+      setFavoritesData(prevState => [...prevState, product]);
     }
   };
 

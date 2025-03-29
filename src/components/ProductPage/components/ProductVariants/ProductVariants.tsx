@@ -1,10 +1,9 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { COLORS, Variants } from '../../../../constants';
-import { ProductsContext } from '../../../../context/ProductsContextProvider';
+import { FullProduct } from '../../../../types';
 import { Color } from '../../../../types/Color';
-import { FullProduct } from '../../../../types/Phone';
 import { AddToCartButton } from '../../../AddToCartButton';
 import { FavoritesButton } from '../../../FavoritesButton';
 import { TechSpecs } from '../../../TechSpecs';
@@ -20,7 +19,6 @@ interface Props {
 export const ProductVariants: FC<Props> = ({ fullProduct }) => {
   const { productId } = useParams();
   const navigate = useNavigate();
-  const { products } = useContext(ProductsContext);
 
   const handleChange = (prevStat: string, newStat: string) => () => {
     if (!productId) {
@@ -74,16 +72,8 @@ export const ProductVariants: FC<Props> = ({ fullProduct }) => {
             <span className={s.priceRegular}>${fullProduct.priceRegular}</span>
           </div>
           <div className={s.buttons}>
-            <AddToCartButton
-              product={products.find(
-                product => product.itemId === fullProduct.id,
-              )}
-            />
-            <FavoritesButton
-              product={products.find(
-                product => product.itemId === fullProduct.id,
-              )}
-            />
+            <AddToCartButton productId={fullProduct.id} />
+            <FavoritesButton productId={fullProduct.id} />
           </div>
         </div>
         <TechSpecs

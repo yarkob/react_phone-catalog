@@ -32,7 +32,7 @@ export const ProductPageSlider: FC<Props> = ({ images, className = '' }) => {
         pagination={{
           clickable: true,
           renderBullet: (idx, bulletClassName) => {
-            const image = `/${images[idx]}`;
+            const image = `./${images[idx]}`;
 
             return `
                 <div

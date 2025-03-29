@@ -4,11 +4,11 @@ import { Catalog } from '../../components/Catalog';
 import { ProductsContext } from '../../context/ProductsContextProvider';
 
 export const Favorites = () => {
-  const { favorites } = useContext(ProductsContext);
+  const { favoritesData } = useContext(ProductsContext);
 
   return (
     <div>
-      <Catalog title="Favorites" products={favorites} showSorts={false} />
+      <Catalog title="Favorites" products={favoritesData} showSorts={false} />
     </div>
   );
 };

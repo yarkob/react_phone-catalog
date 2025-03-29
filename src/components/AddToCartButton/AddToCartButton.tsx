@@ -1,40 +1,33 @@
 import React, { FC, useContext } from 'react';
 
-import { LocalStorage, Variants } from '../../constants';
+import { Variants } from '../../constants';
 import { ProductsContext } from '../../context/ProductsContextProvider';
-import { useLocalStorage } from '../../hooks';
-import { CartProduct, Product } from '../../types';
 import Button from '../ui/Button';
 
 interface Props {
-  product: Product;
+  productId: string;
 }
 
-export const AddToCartButton: FC<Props> = ({ product }) => {
-  const { cart, setCart } = useContext(ProductsContext);
-  const [cartData, setCartData] = useLocalStorage<CartProduct[]>(
-    LocalStorage.Cart,
-  );
+export const AddToCartButton: FC<Props> = ({ productId }) => {
+  const { cartData, setCartData, products } = useContext(ProductsContext);
 
-  const isSelected = product
-    ? cartData.map(item => item.product.id).includes(product.id)
-    : false;
+  const isSelected = cartData.some(item => item.product.itemId === productId);
 
   const addToCartHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     if (isSelected) {
-      setCart(prevState =>
-        prevState.filter(item => item.product.id !== product.id),
-      );
-      setCartData(
-        JSON.stringify(cart.filter(item => item.product.id !== product.id)),
+      setCartData(prevState =>
+        prevState.filter(item => item.product.itemId !== productId),
       );
     } else {
-      setCart(prevState => [...prevState, { product: product, amount: 1 }]);
-      setCartData(
-        JSON.stringify([...cartData, { product: product, amount: 1 }]),
-      );
+      const product = products.find(p => p.itemId === productId);
+
+      if (!product) {
+        return;
+      }
+
+      setCartData(prevState => [...prevState, { product, amount: 1 }]);
     }
   };
 
