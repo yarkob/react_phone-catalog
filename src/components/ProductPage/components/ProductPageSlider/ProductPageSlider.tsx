@@ -16,47 +16,43 @@ export const ProductPageSlider: FC<Props> = ({ images, className = '' }) => {
 
   return (
     <div
-      className={cn(s.container, {
+      className={cn('', {
         [className]: className,
       })}
     >
-      <div className={s.slider}>
-        <Swiper
-          onSwiper={swiper => {
-            swiperRef.current = swiper;
-            setCurrentImage(images[swiper.activeIndex]);
-          }}
-          loop={true}
-          modules={[Pagination]}
-          pagination={{
-            clickable: true,
-            renderBullet: (idx, bulletClassName) => {
-              const image = `/${images[idx]}`;
+      <Swiper
+        className={s.swiper}
+        wrapperClass={s.wrapper}
+        onSwiper={swiper => {
+          swiperRef.current = swiper;
+          setCurrentImage(images[swiper.activeIndex]);
+        }}
+        loop={true}
+        modules={[Pagination]}
+        pagination={{
+          clickable: true,
+          renderBullet: (idx, bulletClassName) => {
+            const image = `/${images[idx]}`;
 
-              return `
+            return `
                 <div
                   class=${bulletClassName}
                 >
                   <img alt="Product image" src=${image} class=${s.controlImg} />
                 </div>
               `;
-            },
-            bulletClass: s.control,
-            bulletActiveClass: s.controlSelected,
-            horizontalClass: s.controls,
-          }}
-        >
-          {images.map(image => (
-            <SwiperSlide key={image} style={{ width: '100%' }}>
-              <img
-                alt="Current product image"
-                src={image}
-                className={s.image}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+          },
+          bulletClass: s.control,
+          bulletActiveClass: s.controlSelected,
+          horizontalClass: s.controls,
+        }}
+      >
+        {images.map(image => (
+          <SwiperSlide key={image} style={{ width: '100%' }}>
+            <img alt="Current product image" src={image} className={s.image} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };

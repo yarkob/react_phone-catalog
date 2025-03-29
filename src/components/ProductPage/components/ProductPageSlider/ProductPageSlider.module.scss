@@ -1,9 +1,10 @@
 @import '../../../../styles/mixins';
 
-.container {
-  display: grid;
+.swiper {
+  display: grid !important;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+  height: 100%;
 
   @include on-tablet {
     grid-template-columns: repeat(6, 1fr);
@@ -15,22 +16,24 @@
 }
 
 .controls {
+  position: static !important;
   order: 2;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   grid-column: span 4;
   height: 100%;
+  background-color: #FFF;
 
   @include on-tablet {
     order: 1;
     flex-direction: column;
-    grid-column: span 1;
+    grid-column: 1/2;
   }
 
   @include on-desktop {
     gap: 16px;
-    grid-column: span 2;
+    grid-column: 1/3;
   }
 }
 
@@ -38,18 +41,16 @@
   aspect-ratio: 1 / 1;
   overflow: hidden;
   cursor: pointer;
-
-  &:focus {
-    border: 1px solid var(--primary-color);
-  }
+  border: 1px solid var(--elements-color);
 }
 
 .controlImg {
   height: 100%;
+  width: 100%;
   object-fit: contain;
 }
 
-.slider {
+.wrapper {
   order: 1;
   display: flex;
   max-width: 100%;
@@ -58,7 +59,7 @@
 
   @include on-tablet {
     order: 2;
-    grid-column: span 5;
+    grid-column: span 2/7;
   }
 
   @include on-desktop {
@@ -74,5 +75,5 @@
 }
 
 .controlSelected {
-  outline: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-color);
 }
