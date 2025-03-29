@@ -7,7 +7,7 @@ import { CartProduct, Product } from '../../types';
 import Button from '../ui/Button';
 
 interface Props {
-  product: Product | undefined;
+  product: Product;
 }
 
 export const AddToCartButton: FC<Props> = ({ product }) => {
@@ -19,10 +19,6 @@ export const AddToCartButton: FC<Props> = ({ product }) => {
   const isSelected = product
     ? cartData.map(item => item.product.id).includes(product.id)
     : false;
-
-  if (!product) {
-    return <h2>Oops</h2>;
-  }
 
   const addToCartHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();

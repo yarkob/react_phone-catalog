@@ -36,7 +36,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
             uppercaseSpecIdx={2}
           />
           <div className={s.buttons}>
-            <AddToCartButton propProduct={product} />
+            <AddToCartButton product={product} />
             <FavoritesButton product={product} />
           </div>
         </div>

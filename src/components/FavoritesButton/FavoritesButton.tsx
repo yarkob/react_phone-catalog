@@ -11,7 +11,7 @@ import { Icon } from '../ui/Icon';
 import s from './FavoritesButton.module.scss';
 
 interface Props {
-  product: Product | undefined;
+  product: Product;
 }
 
 export const FavoritesButton: FC<Props> = ({ product }) => {
@@ -19,10 +19,6 @@ export const FavoritesButton: FC<Props> = ({ product }) => {
   const [favoritesData, setFavoritesData] = useLocalStorage<Product[]>(
     LocalStorage.Favorites,
   );
-
-  if (!product) {
-    return <h2>Oops</h2>;
-  }
 
   const isFavorite = favoritesData
     .map(favorite => favorite.id)
