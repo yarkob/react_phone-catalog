@@ -32,12 +32,6 @@ export const ProductVariants: FC<Props> = ({ fullProduct }) => {
     );
   };
 
-  const [isSelected, setIsSelected] = useState(false);
-
-  const addToCartHandler = () => {
-    setIsSelected(prevState => !prevState);
-  };
-
   return (
     <div className={s.container}>
       <div>
